@@ -1,25 +1,27 @@
 Template.register.events({
   'keyup [name=username]': function(ev) {
-    validationClasses('[name=username]', usernameAvailable, [username()]);
+    form.validationClasses('[name=username]', validations.usernameAvailable, [form.username()]);
   },
   'keyup [name=email]': function(ev) {
-    validationClasses('[name=email]', validEmail, [email()]);
+    form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
   },
   'keyup [name=password]': function(ev) {
-    validationClasses('[name=password]', validLength, [password()]);
+    form.validationClasses('[name=password]', validations.validLength, [form.password()]);
   },
   'submit .register': function(ev) {
     ev.preventDefault();
     
-    var valid = formValid(usernameAvailable(username()), validEmail(email()), validLength(password()));
+    var valid = form.isValid(validations.usernameAvailable(form.username()), 
+                             validations.validEmail(form.email()), validations.validLength(form.password()));
+    
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
     } else {
       $('[name=register]').val('Registering...').attr('disabled', 'true');
       Accounts.createUser({
-        username: username(),
-        email: email(),
-        password: password()
+        username: form.username(),
+        email: form.email(),
+        password: form.password()
       }, function(err) {
         if (err) {
           $('[name=register]').val('Register').removeAttr('disabled');

@@ -1,16 +1,16 @@
 Template.reset.events({
   'keyup [name=email]': function(ev) {
-    validationClasses('[name=email]', validEmail, [email()]);
+    form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
   },
   'submit .reset': function(ev) {
     ev.preventDefault();
     
-    var valid = formValid(validEmail(email()));
+    var valid = form.isValid(validations.validEmail(form.email()));
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
     } else {
       $('[name=reset]').val('Sending Link...').attr('disabled', 'true');
-      Accounts.forgotPassword({email: email() }, function(err) {
+      Accounts.forgotPassword({email: form.email() }, function(err) {
         if (err) {
           toastr.error(err.reason);
         } else {
@@ -24,22 +24,24 @@ Template.reset.events({
 
 Template.resetPassword.events({
   'keyup [name=password]': function(ev) {
-    validationClasses('[name=password]', validLength, [password()]);
+    form.validationClasses('[name=password]', validations.validLength, [form.password()]);
   },
   'keyup [name=confirm-password]': function(ev) {
-    validationClasses('[name=confirm-password]', validPasswordConfirmation, [password(), passwordConfirmation()]);
+    form.validationClasses('[name=confirm-password]', validations.validPasswordConfirmation, 
+                      [form.password(), form.passwordConfirmation()]);
   },
   'submit .reset': function(ev) {
     ev.preventDefault();
     
-    var valid = formValid(validLength(password()), validPasswordConfirmation(password(), passwordConfirmation()));
+    var valid = form.isValid(validations.validLength(form.password()), 
+                          validations.validPasswordConfirmation(form.password(), form.passwordConfirmation()));
     
     if (!valid)  {
       toastr.error('The Form is invalid. Please try again');
       return false;
     } else {
       $('[name=reset]').val('Resetting Password...').attr('disabled', 'true');
-      Accounts.resetPassword(Session.get('reset-token'), password(), function(err) {
+      Accounts.resetPassword(Session.get('reset-token'), form.password(), function(err) {
         if (err) {
           toastr.error(err.reason);
         } else {
