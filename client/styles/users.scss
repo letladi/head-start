@@ -1,0 +1,61 @@
+@import "colors.scss";
+@import "layout.scss";
+
+.users {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid lighten($gunMetal, 80%);
+  text-align: center;
+  
+  form {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    * {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+    }
+    input {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      height: 50px;
+      border: none;
+      text-align: center;
+      background-color: $shamRockGreen;
+    }
+    
+    input.error {
+      background-color: $alazarinCrimson;
+    }
+    
+    hr {
+      color: lighten($ashGray, 60%);
+    }
+     
+    [name=register], [name=login], [name=reset] {
+      background-color: darken($carolineBlue, 10%);
+      transition: 0.5s;
+    }
+    [name=register]:hover, [name=login]:hover, [name=reset]:hover {
+      background-color: darken($carolineBlue, 20%);
+    }
+    
+    [disabled=disabled],  [disabled=disabled]:hover {
+      background-color: lighten($carolineBlue, 10%);
+    }    
+  }
+ 
+  .other-action  {
+    padding-bottom: 20px;
+      a {
+        font-size: 0.8rem;
+        color: $ashGray;
+        display: inline;
+        &:hover {
+          border-bottom: 1px dotted lighten($ashGray, 10%);
+        }
+      }
+   } 
+}

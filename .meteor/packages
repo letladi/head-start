@@ -8,3 +8,8 @@ meteor-platform
 autopublish
 insecure
 fourseven:scss
+iron:router
+chrismbeckett:toastr
+email
+accounts-password
+underscore

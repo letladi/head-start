@@ -1,0 +1,45 @@
+%!Adobe-FontList 1.14
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Bold
+FamilyName:Futura Std
+StyleName:Bold
+MenuName:Futura Std Book
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Bold
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:47252
+FileModTime:1368546155
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Light
+FamilyName:Futura Std
+StyleName:Light
+MenuName:Futura Std Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Light
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:46545
+FileModTime:1368546081
+%EndFont
+

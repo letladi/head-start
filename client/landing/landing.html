@@ -1,0 +1,27 @@
+<template name="landing">
+  <div class='header'>
+    <div class="menu-btn">
+      <span class="fa fa-bars fa-2x btn"></span>
+    </div>
+    <div class="nav hide-nav">
+      <ul class="clearfix">
+        <li><a href="#about">About</a></li>
+        <li><a href="{{pathFor 'register'}}">Register</a></li>
+        <li><a href="{{pathFor 'login'}}">Login</a></li>
+      </ul>
+    </div>
+   </div>
+  
+  <div class="intro section">
+    <div class="intro-speech">
+      <h1>Head Start</h1>
+    </div>
+    <div class="see-sections"><a href="#about" class="six"><span class="fa fa-angle-double-down fa-3x"></span></a></div>
+  </div>
+  
+  <div class="section" id="about">
+    <h1>About</h1>
+    <hr>
+    <h2>Head Start is a starting point for meteor applications</h2>
+  </div>
+</template>

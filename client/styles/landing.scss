@@ -1,0 +1,91 @@
+@import "layout.scss";
+@import "colors.scss";
+
+.landing.container {
+  color: $ashGray;
+}
+
+
+.menu-btn {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  padding-left: 15px;
+  .btn {
+    cursor: pointer;
+  }
+}
+
+.nav {
+  display: none;
+  text-align: left;
+  ul {
+    padding: 0px;
+  }
+  li {
+    display: inline;
+    transition: all 0.5s;
+    a {
+      transition: 1s all;
+      margin-left: 15px;
+      color: $ashGray;
+    }
+    &:hover {
+      a {
+        border-bottom: 1px dotted;
+      }
+    }
+  }
+}
+
+.section {
+  padding-top: 10px;
+  height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+    hr {
+      width: 20%;
+      margin-top: 5px;
+    }
+}
+
+.intro {
+  width: 100%;
+  
+  .see-sections {
+    position: absolute; 
+    width: 100%;
+    border: none;
+    text-align: center;
+    bottom: 18%;
+    transition: 0.5s;
+    &:hover {
+      bottom: 17%;
+    }
+  }
+}
+
+$landing-min-break-point: 300px;
+$landing-mid-break-point: 600px;
+$landing-lg-break-point: 900px;
+
+
+@media (min-width: $landing-lg-break-point) {
+  .container.landing {
+    width: 90%;
+    h2 {
+      font-size: 1.7rem;
+    }
+    h1 {
+      font-family: Helvetica;
+      font-size: 2.5rem;
+    }
+    .intro {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+  
+}
