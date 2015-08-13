@@ -1,8 +1,8 @@
 Meteor.startup(function() {
   process.env.MAIL_URL = Meteor.settings.private.MAIL_URL;
 
-  Accounts.emailTemplates.from = 'Revolver Music <sletladi@gmail.com>';
-  Accounts.emailTemplates.siteName = 'Revolver Music';
+  Accounts.emailTemplates.from = 'Head Start <sletladi@gmail.com>';
+  Accounts.emailTemplates.siteName = 'Head Start';
 
   // A Function that takes a user object and returns a String for the subject line of the email.
   Accounts.emailTemplates.verifyEmail.subject = function(user) {
@@ -15,7 +15,7 @@ Meteor.startup(function() {
   // A Function that takes a user object and a url, and returns the body text for the email.
   // Note: if you need to return HTML instead, use Accounts.emailTemplates.verifyEmail.html
   Accounts.emailTemplates.verifyEmail.html = function(user, url) {
-    return '<h2>Welcome to Revolver</h2><p>Please click the following link to complete your registration</p>' 
+    return '<h2>Welcome to Head Start</h2><p>Please click the following link to complete your registration</p>' 
       + "<a href='"+ url + "'>Verify Email</a>";
   };
   Accounts.emailTemplates.resetPassword.html = function(user, url) {
