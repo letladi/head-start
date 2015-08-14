@@ -37,5 +37,10 @@ Template.register.events({
 
 Accounts.onEmailVerificationLink(function(token, done) {
   done();
+  Accounts.verifyEmail(token, function(err) {
+    if (err) {
+      toastr.error(err.reason);
+    }
+  }); 
   Router.go('dashboard');
 });
