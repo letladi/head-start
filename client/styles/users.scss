@@ -4,7 +4,6 @@
   margin-top: 3rem;
   width: 100%;
   max-width: 250px;
-  min-width: 150px;
   border: 1px solid lighten($gunMetal, 80%);
   text-align: center;
   
@@ -24,6 +23,9 @@
       border: none;
       text-align: center;
       background-color: $shamRockGreen;
+      &:focus {
+        background-color: lighten($shamRockGreen, 5%);
+      }
     }
     
     input.error {
