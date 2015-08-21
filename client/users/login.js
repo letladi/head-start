@@ -13,11 +13,11 @@ Template.login.events({
       toastr.error('The Form is invalid. Please try again');
       return false;
     } else {
-      $('[name=login]').val('Logging In...').attr('disabled', 'true');
+      $('[name=login]').val('Logging In...').prop( "disabled", true );
       Meteor.loginWithPassword(form.email(), form.password(), 
         function(err) {
           if (err) {
-            $('[name=login]').val('Login').removeAttr('disabled');
+            $('[name=login]').val('Login').prop( "disabled", false );
             toastr.error(err.reason);
           } else {
             Router.go('dashboard');

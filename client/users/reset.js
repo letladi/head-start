@@ -1,4 +1,4 @@
-Template.reset.events({
+Template.forgotPassword.events({
   'keyup [name=email]': function(ev) {
     form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
   },
@@ -9,10 +9,11 @@ Template.reset.events({
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
     } else {
-      $('[name=reset]').val('Sending Link...').attr('disabled', 'true');
+      $('[name=reset]').val('Sending Link...').prop( "disabled", true );
       Accounts.forgotPassword({email: form.email() }, function(err) {
         if (err) {
           toastr.error(err.reason);
+          $('[name=reset]').val('Send Email Link').prop( "disabled", false );
         } else {
           $('[name=reset]').val('Reset Link Sent');
           toastr.success('Please check your email to reset password');

@@ -24,7 +24,7 @@
       text-align: center;
       background-color: $shamRockGreen;
       &:focus {
-        background-color: lighten($shamRockGreen, 5%);
+        background-color: darken($shamRockGreen, 5%);
       }
     }
     
@@ -37,11 +37,11 @@
     }
      
     [name=register], [name=login], [name=reset] {
-      background-color: darken($carolineBlue, 10%);
+      background-color: $carolineBlue;
       transition: 0.5s;
     }
     [name=register]:hover, [name=login]:hover, [name=reset]:hover {
-      background-color: darken($carolineBlue, 20%);
+      background-color: darken($carolineBlue, 10%);
     }
     
     [disabled=disabled],  [disabled=disabled]:hover {
