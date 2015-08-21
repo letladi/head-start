@@ -49,8 +49,7 @@
 }
 
 .intro {
-  width: 100%;
-  
+  width: 100%; 
   .see-sections {
     position: absolute; 
     width: 100%;
@@ -67,7 +66,6 @@
 $landing-min-break-point: 300px;
 $landing-mid-break-point: 600px;
 $landing-lg-break-point: 900px;
-
 
 @media (min-width: $landing-lg-break-point) {
   .container.landing {
