@@ -23,7 +23,7 @@
       margin-top: 10px;
     }
      
-    [name=register], [name=login], [name=reset] {
+    [type=submit] {
       background-color: $carolineBlue; transition: 0.5s;
       &:hover {
         background-color: darken($carolineBlue, 10%);
