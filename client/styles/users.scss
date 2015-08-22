@@ -28,6 +28,9 @@
       &:hover {
         background-color: darken($carolineBlue, 10%);
       }
+      &:focus {
+        background-color: darken($carolineBlue, 5%);
+      }
     }
     
     [disabled=disabled],  [disabled=disabled]:hover {
