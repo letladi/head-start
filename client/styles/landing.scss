@@ -5,28 +5,21 @@
 }
 
 .menu-btn {
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px;
-  padding-left: 15px;
+  width: 100%; margin: 0 auto; padding: 10px; padding-left: 15px;
   .btn {
     cursor: pointer;
   }
 }
 
 .nav {
-  display: none;
-  text-align: left;
+  display: none; text-align: left;
   ul {
     padding: 0px;
   }
   li {
-    display: inline;
-    transition: all 0.5s;
+    display: inline; transition: all 0.5s;
     a {
-      transition: 1s all;
-      margin-left: 15px;
-      color: $ashGray;
+      transition: 1s all; margin-left: 15px; color: $ashGray;
     }
     &:hover {
       a {
@@ -37,28 +30,21 @@
 }
 
 .section {
-  padding-top: 10px;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
+  padding-top: 10px; height: 100vh; text-align: center; margin: 0 auto; width: 90%;
     hr {
-      width: 20%;
-      margin-top: 5px;
+      width: 20%; margin-top: 5px;
     }
 }
 
 .intro {
   width: 100%; 
   .see-sections {
-    position: absolute; 
-    width: 100%;
-    border: none;
-    text-align: center;
-    bottom: 18%;
-    transition: 0.5s;
-    &:hover {
-      bottom: 17%;
+    position: absolute; border: none; text-align: right; bottom: 18%;
+    a {
+      transition: 0.6s; position: absolute; right: 0; top: 0;
+      &:hover {
+        top: 10px;
+      }
     }
   }
 }
@@ -74,8 +60,7 @@ $landing-lg-break-point: 900px;
       font-size: 1.7rem;
     }
     h1 {
-      font-family: Helvetica;
-      font-size: 2.5rem;
+      font-family: Helvetica; font-size: 2.5rem;
     }
     .intro {
       h1 {

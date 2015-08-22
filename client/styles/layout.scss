@@ -1,13 +1,10 @@
 @import "colors.scss";
 @import "sass-reset.scss";
 
-$max-display-size: 1500px;
-
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+    content: " "; display: table;
 }
 .clearfix:after {
     clear: both;
@@ -17,30 +14,21 @@ $max-display-size: 1500px;
 }
 
 html {
-	  font-family: 'Didact Gothic', Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    overflow: auto;
-    overflow-x: hidden;
-    position: relative;
+	font-family: 'Didact Gothic', Helvetica, Arial, sans-serif; 
+  font-weight: 600; font-size: 15px; overflow: auto; overflow-x: hidden; position: relative;
 }
 
+$max-display-size: 1500px;
 .container {
-	width: 100%;
-	margin: 0 auto;
-	padding-bottom: 2rem;
-  max-width: $max-display-size;
+	width: 100%; margin: 0 auto; padding-bottom: 2rem; max-width: $max-display-size;
 }
 
 .menu-btn, footer, div, hr, ul {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
+  position: relative; width: 100%; margin: 0 auto;
 }
 
 a {
-	color: $gunMetal;
-	text-decoration: none;
+	color: $gunMetal; text-decoration: none;
 }
 
 li {
@@ -48,8 +36,7 @@ li {
 }
 
 input {
-  border: none;
-  text-align: center;
+  border: none; text-align: center;
   &:focus {
     outline: none;
   }
