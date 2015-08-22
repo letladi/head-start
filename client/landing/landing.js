@@ -1,10 +1,8 @@
 Template.landing.onRendered(function() {
   $('.container').addClass('landing');
-  $('body').addClass('landing-body');
 });
 Template.landing.onDestroyed(function() {
   $('.container').removeClass('landing');
-  $('body').removeClass('landing-body');
 });
 Template.landing.events({
   'click .menu-btn': function(ev) {

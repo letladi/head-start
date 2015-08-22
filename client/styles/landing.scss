@@ -39,9 +39,9 @@
 .intro {
   width: 100%; 
   .see-sections {
-    position: absolute; border: none; text-align: right; bottom: 18%;
+    position: absolute; border: none; text-align: right; bottom: 20%;
     a {
-      transition: 0.6s; position: absolute; right: 0; top: 0;
+      transition: 0.6s; position: absolute; right: 10%; top: 0;
       &:hover {
         top: 10px;
       }
