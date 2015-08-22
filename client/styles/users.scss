@@ -33,16 +33,15 @@
     }
     
     hr {
-      color: lighten($ashGray, 60%);
       margin-top: 10px;
     }
      
     [name=register], [name=login], [name=reset] {
       background-color: $carolineBlue;
       transition: 0.5s;
-    }
-    [name=register]:hover, [name=login]:hover, [name=reset]:hover {
-      background-color: darken($carolineBlue, 10%);
+      &:hover {
+        background-color: darken($carolineBlue, 10%);
+      }
     }
     
     [disabled=disabled],  [disabled=disabled]:hover {
@@ -55,26 +54,39 @@
     transition: 0.4s;
   }
   
-  .user-terms {
+  .terms-link {
     *, & {
-      color: darken($ashGray, 5%);
+      color: $ashGray;
     }
     a {  
       display: block;     
       &:hover {
-          color: darken($ashGray, 40%);
+          color: darken($ashGray, 30%);
       }
     }
   }
  
   .other-action  {
     padding-bottom: 20px;  
-      a {
-        display: inline;
-        color: $ashGray;
-        &:hover {
-          border-bottom: 1px dotted lighten($ashGray, 10%);
-        }
+    a {
+      display: inline;
+      color: $ashGray;
+      &:hover {
+        border-bottom: 1px dotted lighten($ashGray, 10%);
       }
+    }
    } 
 }
+
+.user-terms {
+    padding-top:100px;
+    width: 80%;
+    color: $ashGray;
+    h1 {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    p {
+      margin-top: 20px;
+    }
+  }
