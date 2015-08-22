@@ -34,6 +34,7 @@
     
     hr {
       color: lighten($ashGray, 60%);
+      margin-top: 10px;
     }
      
     [name=register], [name=login], [name=reset] {
@@ -48,13 +49,29 @@
       background-color: lighten($carolineBlue, 10%);
     }    
   }
+  
+  a, span {
+    font-size: 0.8rem; 
+    transition: 0.4s;
+  }
+  
+  .user-terms {
+    *, & {
+      color: darken($ashGray, 5%);
+    }
+    a {  
+      display: block;     
+      &:hover {
+          color: darken($ashGray, 40%);
+      }
+    }
+  }
  
   .other-action  {
-    padding-bottom: 20px;
+    padding-bottom: 20px;  
       a {
-        font-size: 0.8rem;
-        color: $ashGray;
         display: inline;
+        color: $ashGray;
         &:hover {
           border-bottom: 1px dotted lighten($ashGray, 10%);
         }

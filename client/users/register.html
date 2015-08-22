@@ -3,9 +3,13 @@
     <form class="register">
       <input type="text" name="username" placeholder="Username" >
       <input type="email" name="email" placeholder="Email" >
-      <input type="password" name="password" minlength="6" placeholder="Password" >
+      <input type="password" name="password" placeholder="Password" >
+      <span class="user-terms">
+        <!-- <span class="fa fa-toggle-off terms"></span> -->By registering you accept these <a href="user-terms">terms</a>
+      </span>
       <hr>
-      <input type="submit" name="register" value="Register" >
+      <input type="submit" name="register" value="Register" > 
+      
       <div class="other-action clearfix">
         <a href="{{pathFor 'login'}}" class="login">Have Account?</a>
         <a href="{{pathFor 'forgotPassword'}}" class="reset">Forgot Password?</a>
