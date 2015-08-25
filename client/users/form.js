@@ -7,9 +7,6 @@ form = {
   email: function() {
     return $('[name=email]').val().trim();
   },
-  username: function() {
-    return $('[name=username]').val().trim();
-  },
   password: function() {
     return $('[name=password]').val().trim();
   },

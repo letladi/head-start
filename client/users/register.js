@@ -1,7 +1,4 @@
 Template.register.events({
-  'keyup [name=username]': function(ev) {
-    form.validationClasses('[name=username]', validations.usernameAvailable, [form.username()]);
-  },
   'keyup [name=email]': function(ev) {
     form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
   },
@@ -11,15 +8,13 @@ Template.register.events({
   'submit .register': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.usernameAvailable(form.username()), 
-                             validations.validEmail(form.email()), validations.validLength(form.password()));
+    var valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));
     
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
     } else {
       $('[name=register]').val('Registering...').prop( "disabled" , true );
       Accounts.createUser({
-        username: form.username(),
         email: form.email(),
         password: form.password()
       }, function(err) {
