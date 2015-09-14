@@ -1,5 +1,5 @@
 Meteor.startup(function() {
-  process.env.MAIL_URL = Meteor.settings.private.MAIL_URL;
+  process.env.MAIL_URL = Meteor.settings.MAIL_URL;
 
   Accounts.emailTemplates.from = 'Head Start <sletladi@gmail.com>';
   Accounts.emailTemplates.siteName = 'Head Start';
