@@ -1,72 +1,77 @@
 @import "layout.scss";
 
-.landing.container {
-  color: $ashGray;
+.landing {
+  .show-connect-menu { display: none; }
+  .show-engage-menu { display: none; }
 }
-
-.menu-btn {
-  width: 100%; margin: 0 auto; padding: 10px; padding-left: 15px;
-  .btn {
-    cursor: pointer;
-  }
-}
-
-.nav {
-  display: none; text-align: left;
-  ul {
-    padding: 0px;
-  }
-  li {
-    display: inline; transition: all 0.5s;
-    a {
-      transition: 1s all; margin-left: 15px; color: $ashGray;
-    }
-    &:hover {
-      a {
-        border-bottom: 1px dotted;
-      }
-    }
-  }
-}
-
 .section {
-  padding-top: 10px; height: 100vh; text-align: center; margin: 0 auto; width: 90%;
+  padding-top: 10px; height: 100vh; text-align: center; margin: 0 auto; 
     hr {
       width: 20%; margin-top: 5px;
     }
 }
 
 .intro {
-  width: 100%; 
+  background-image: url("img/intro-bg.jpg"); background-size: cover; color: $ashGray;
+  h1 { font-size: 3rem; }
+  .intro-speech {
+    margin-top: 100px;
+    .logo {
+      width: 90px;
+    }
+    span {
+      display: block; font-size: 2rem;
+    }
+  }
+  
   .see-sections {
-    position: absolute; border: none; text-align: right; bottom: 20%;
+    position: absolute; border: none; text-align: center; bottom: 18%;  
     a {
-      transition: 0.6s; position: absolute; right: 10%; top: 0;
+      transition: 0.3s; position: absolute; top: 0; color:$alazarinCrimson; 
       &:hover {
         top: 10px;
       }
     }
   }
+} 
+
+.about-info {
+  margin-top: 5rem;
+  &, * {
+    color: $ashGray;
+  }
 }
-
-$landing-min-break-point: 300px;
-$landing-mid-break-point: 600px;
-$landing-lg-break-point: 900px;
-
-@media (min-width: $landing-lg-break-point) {
-  .container.landing {
-    width: 90%;
-    h2 {
-      font-size: 1.7rem;
+.link-to-pages {
+  text-align: center; margin-top: 20px;
+  div { 
+    margin-bottom: 20px; box-shadow: 0px 1px 1px 1px lighten($alazarinCrimson, 30%), 0px -1px 1px 1px lighten($alazarinCrimson, 30%); padding-top: 20px; padding-bottom: 20px; cursor: pointer; transition: 0.5s; color: $alazarinCrimson;
+    &:hover {
+      background-color: lighten($alazarinCrimson, 10%); color: $ivory;
     }
-    h1 {
-      font-family: Helvetica; font-size: 2.5rem;
-    }
-    .intro {
-      h1 {
-        font-size: 3rem;
-      }
+    span {
+      padding-top: 20px; padding-bottom: 20px;
     }
   }
   
+  @media (min-width: 600px) and (max-width: 900px) {
+    div:nth-child(1), div:nth-child(2) {
+      float: left; width: 49%; margin-left: 5px;
+    }
+    div:nth-child(1) {
+      margin-left: 5px;
+    }
+    div:nth-child(3) {
+      clear: left;
+    }
+  } 
+  
+  @media (min-width: 900px) {
+    max-width: 900px;
+    div {
+      width: 32%; margin: 5px; float: left;
+    }
+  }
 }
+
+
+

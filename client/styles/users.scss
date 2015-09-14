@@ -1,7 +1,9 @@
 @import "layout.scss";
 
 .users {
-  margin-top: 3rem; width: 100%; max-width: 250px; border: 1px solid lighten($gunMetal, 80%); text-align: center;
+  margin-top: 5rem; width: 100%; max-width: 250px; border: 1px solid lighten($gunMetal, 80%); text-align: center; background-color: white;
+  
+  .logo { width: 60px; margin-top: 1rem; }
   
   form {
     margin-top: 10px; padding-bottom: 10px; background-color: transparent;
@@ -66,9 +68,9 @@
 }
 
 .user-terms {
-    padding-top:100px; width: 80%; color: $ashGray;
+    padding-top:100px; width: 80%; color: $ashGray; text-align: center;
     h1 {
-      text-align: center; font-size: 1.2rem;
+      font-size: 1.2rem; text-decoration: underline; margin-bottom: 1rem;
     }
     p {
       margin-top: 20px;

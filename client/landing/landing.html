@@ -1,27 +1,36 @@
 <template name="landing">
-  <div class='header'>
-    <div class="menu-btn">
-      <span class="fa fa-bars fa-2x btn"></span>
-    </div>
-    <div class="nav hide-nav">
-      <ul class="clearfix">
-        <li><a href="#about">About</a></li>
-        <li><a href="{{pathFor 'register'}}">Register</a></li>
-        <li><a href="{{pathFor 'login'}}">Login</a></li>
-      </ul>
-    </div>
-   </div>
   
   <div class="intro section">
     <div class="intro-speech">
       <h1>Head Start</h1>
+      <p>Hit the ground running on your next Meteor project!</p>
     </div>
-    <div class="see-sections"><a href="#about"><span class="fa fa-angle-double-down fa-3x"></span></a></div>
+    <div class="see-sections">
+      <a href="#about"><span class="fa fa-arrow-circle-down fa-3x"></span></a>
+    </div>
   </div>
   
   <div class="section" id="about">
-    <h1>About</h1>
-    <hr>
-    <h2>Head Start is a starting point for meteor applications</h2>
+    <div class="about-info">
+      <h1>About</h1>
+      <p>Head Start is a starting point for Metor applications that include features that are essential for every web application</p>
+      <p>Head Start comes with the following features:</p> 
+    </div>
+    
+    <div class="link-to-pages">
+      <div data-link="connect">
+        <h2>User Registration/Login</h2>
+        <span class="fa fa-user fa-5x"></span>
+      </div>
+      <div data-link="engage">
+        <h2>File Uploads</h2>
+        <span class="fa fa-upload fa-5x"></span>
+      </div>
+      <div data-link="contact">
+        <h2>Image Manupilation</h2>
+        <span class="fa fa-file-image-o fa-5x"></span>
+      </div>
+    </div>
   </div>
+  
 </template>

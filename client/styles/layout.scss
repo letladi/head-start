@@ -1,6 +1,8 @@
 @import "colors.scss";
 @import "sass-reset.scss";
 
+$max-display-size: 1500px;
+
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
@@ -14,17 +16,68 @@
 }
 
 html {
-	font-family: 'Didact Gothic', Helvetica, Arial, sans-serif; 
-  font-weight: 600; font-size: 15px; overflow: auto; overflow-x: hidden; position: relative;
+	  font-family: Lato, sans-serif; font-weight: 300; font-size: 15px; overflow: auto; overflow-x: hidden; position: relative;
 }
 
-$max-display-size: 1500px;
 .container {
-	width: 100%; margin: 0 auto; padding-bottom: 2rem; max-width: $max-display-size;
+	width: 100%; margin: 0 auto; padding-bottom: 2rem; min-width: 250px;
 }
 
-.menu-btn, footer, div, hr, ul {
+.top-section {
+  background: white ; position: fixed; top: 0; z-index: 200; box-shadow: 0px 0px 2px 1px lighten($alazarinCrimson, 20%); 
+  .header, .site-info { width: 50%; float: left; }
+  .site-info { 
+    font-size: 1.5rem; min-width: 250px; color: $ashGray; 
+    * { 
+      cursor: pointer;
+    }
+    a { cursor: pointer; }
+    span { vertical-align: -50%; }
+    .title-1 { color: $ashGray; margin-left: 10px; }
+    .title-2 { color: $alazarinCrimson; }
+  }
+  .logo { width: 40px; margin-left: 0.3rem; margin-top: 0.4rem; }
+}
+
+footer, div, hr, ul, p, table, form, textarea {
   position: relative; width: 100%; margin: 0 auto;
+}
+
+.menu-btn {
+  width: 100%; padding: 10px; text-align: right;
+  .btn {
+    cursor: pointer; margin-right: 20px; color: lighten($alazarinCrimson, 10%);
+  }
+}
+
+.nav {
+  display: none; text-align: center; margin: 0 auto; font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 100; clear: both;
+  ul {
+    padding: 0px; background-color: darken($alazarinCrimson, 25%);
+    &, * {
+      color: $ivory;
+    }
+  }
+  li {
+    padding: 7px;
+    a {
+      transition: 0.7s all; margin-left: 15px; margin-right: 20px; 
+    }
+    &:hover {
+      background-color: lighten($alazarinCrimson, 10%); 
+    }
+    .sub-menu {
+      display: none; margin-top: 5px; background-color: lighten($alazarinCrimson, 5%);
+      li {
+        &:hover {
+          background-color: lighten($ashGray, 26%);
+          &, * {
+            color: $alazarinCrimson;
+          }
+        }
+      }
+    }
+  }
 }
 
 a {
@@ -40,4 +93,18 @@ input {
   &:focus {
     outline: none;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem; margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+h1 {
+  font-size: 1.5rem;
+}
+p {
+  margin-top: 0.4rem; padding: 3px; font-size: 1.3rem; max-width: 900px;
 }
