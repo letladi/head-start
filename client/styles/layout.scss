@@ -53,9 +53,9 @@ footer, div, hr, ul, p, table, form, textarea {
 .nav {
   display: none; text-align: center; margin: 0 auto; font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 100; clear: both;
   ul {
-    padding: 0px; background-color: darken($alazarinCrimson, 25%);
+    padding: 0px; background-color: lighten($alazarinCrimson, 10%);
     &, * {
-      color: $ivory;
+      color: white;
     }
   }
   li {
