@@ -2,6 +2,7 @@ accounts-base@1.2.0
 accounts-password@1.1.1
 autoupdate@1.2.1
 base64@1.0.3
+benjaminrh:jquery-cookie@0.1.0
 binary-heap@1.0.3
 blaze@2.1.2
 blaze-tools@1.0.3
