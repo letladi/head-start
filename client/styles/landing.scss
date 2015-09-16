@@ -1,8 +1,5 @@
 @import "layout.scss";
 
-.landing {
-  .show-sub-menu { display: none; }
-}
 .section {
   padding-top: 10px; height: 100vh; text-align: center; margin: 0 auto; 
     hr {
@@ -11,16 +8,10 @@
 }
 
 .intro {
-  background-image: url("img/intro-bg.jpg"); background-size: cover; color: $ashGray;
+  background: radial-gradient(circle, white 0%, lighten($alazarinCrimson, 20%) 100%) no-repeat; color: lighten($gunMetal, 20%);
   h1 { font-size: 3rem; }
   .intro-speech {
-    margin-top: 100px;
-    .logo {
-      width: 90px;
-    }
-    span {
-      display: block; font-size: 2rem;
-    }
+    margin-top: 100px;  
   }
   
   .see-sections {
@@ -40,13 +31,11 @@
     color: $ashGray;
   }
 }
-.link-to-pages {
+.features {
   text-align: center; margin-top: 20px;
   div { 
-    margin-bottom: 20px; box-shadow: 0px 1px 1px 1px lighten($alazarinCrimson, 30%), 0px -1px 1px 1px lighten($alazarinCrimson, 30%); padding-top: 20px; padding-bottom: 20px; cursor: pointer; transition: 0.5s; color: $alazarinCrimson;
-    &:hover {
-      background-color: lighten($alazarinCrimson, 10%); color: $ivory;
-    }
+    margin-bottom: 20px; box-shadow: 0px 1px 1px 1px lighten($alazarinCrimson, 30%), 0px -1px 1px 1px lighten($alazarinCrimson, 30%); padding-top: 20px; padding-bottom: 20px; transition: 0.5s; color: $alazarinCrimson;
+
     span {
       padding-top: 20px; padding-bottom: 20px;
     }
