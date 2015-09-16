@@ -39,9 +39,3 @@ Template.header.events({
     return false;
   }
 });
-
-Template.siteInfo.events({
-  'click': function(ev) {
-    console.log(ev.target);
-  }
-});
