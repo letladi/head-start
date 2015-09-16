@@ -1,0 +1,75 @@
+@import "layout.scss";
+
+.contact, .dashboard, .container {
+  
+  .panels, .contact-points {
+    width: 98%; max-width: 900px; margin-top: 5rem; text-align: center;
+    .panel, .contact-point {
+       box-shadow: 0px 1px 1px 1px lighten($alazarinCrimson, 30%), 0px -1px 1px 1px lighten($alazarinCrimson, 30%); margin-top: 2rem; padding-bottom: 1rem; padding-top: 1rem;
+      img { width: 100%; max-width: 900px; }
+      h2 { font-weight: 400; }
+      p { text-align: left; width: 97%; }
+      span { color: $ashGray; cursor: pointer; margin: 20px; }
+      
+      .file {
+        max-width: 200px; float: left; border: 1px solid $carolineBlue; margin: 10px; padding: 10px;
+        .progress-indicator { display: none; }
+        .panel-content span { display: block; }
+        .file-list-heading { display: none; }
+        .uploading { background-color: lighten($shamRockGreen, 30%); height: 20px; }
+        .deleted { display: none; }
+        .js-delete { color: $alazarinCrimson; }
+      }
+      
+    }
+
+  }
+} 
+
+.contact {
+  
+  .contact-details {
+    width: 97%; display: none; color: $ashGray;
+    h3 { font-weight: 400; }
+    tr { width: 49%; }
+    td { padding: 5px; }
+    td:nth-child(1) { text-align: left; }
+    td:nth-child(2) { text-align: right; }
+  }
+
+  form {
+    width: 90%; margin-top: 30px; max-width: 440px;
+    input, textarea {
+      display: block;
+      &:focus {
+        outline: none;
+      }
+      position: relative; width: 100%; margin-top: 5px; margin-bottom: 5px;
+    }
+    textarea { 
+      margin-top: 10px; resize: none; background-color: lighten($carolineBlue, 20%); border: none; width: 95%; padding: 10px; transition: 1s;
+      &:focus {
+        background-color: lighten($carolineBlue, 30%)
+      }
+    }
+    [name=name], [name=email] {
+      border-bottom: 2px solid $carolineBlue; height: 40px; vertical-align: 0%; width: 100%; text-align: left; transition: 0.5s;
+      &:focus {
+        border-bottom: 3px solid $shamRockGreen;
+      }
+    }
+    .input-error {
+      border-bottom: 3px solid $alazarinCrimson;
+    }
+    .message-error {
+      background-color: lighten($alazarinCrimson, 10%);
+    }
+    [name=submit] {
+      background-color: $carolineBlue; height: 60px; margin-bottom: 20px; transition: 1s;
+      &:active, &:hover { 
+       color: $ivory;
+     }
+    }
+    
+  }
+}
