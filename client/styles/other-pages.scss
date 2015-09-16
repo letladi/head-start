@@ -13,11 +13,8 @@
       
       .file {
         max-width: 200px; float: left; border: 1px solid $carolineBlue; margin: 10px; padding: 10px;
-        .progress-indicator { display: none; }
         .panel-content span { display: block; }
         .file-list-heading { display: none; }
-        .uploading { background-color: lighten($shamRockGreen, 30%); height: 20px; }
-        .deleted { display: none; }
         .js-delete { color: $alazarinCrimson; }
       }
       
