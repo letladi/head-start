@@ -19,4 +19,7 @@
  - Email (meteor add email),
  - SASS (meteor add fourseven:scss),
  - Iron Router (meteor add iron:router)
+ 
+ ### How to get started
+ Just clone the repo and put a settings.json file in the private/ folder
 

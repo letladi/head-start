@@ -1,3 +1,4 @@
 {
-  "MAIL_URL": "smtp://<full-email-address>:<password>@smtp.<email-server-domain>:<smtp-port>/"
+  "MAIL_URL": "smtp://<full-email-address>:<password>@smtp.<email-server-domain>:<smtp-port>/",
+  "myEmailAddress": "<your-email-adrress>" // When people register, this is the email they will receive the sign-up email from
 }
