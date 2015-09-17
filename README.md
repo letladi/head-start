@@ -21,5 +21,6 @@
  - Iron Router (meteor add iron:router)
  
  ### How to get started
- Just clone the repo and put a settings.json file in the private/ folder
+ - Just clone the repo and put a settings.json file in the private/ folder
+ - Replace the details in server/users/emailConfig.js with those of your app
 

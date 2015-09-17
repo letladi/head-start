@@ -1,7 +1,8 @@
+// Replace these details with those of your application
 Meteor.startup(function() {
   process.env.MAIL_URL = Meteor.settings.MAIL_URL;
 
-  Accounts.emailTemplates.from = 'Head Start <' + Meteor.settings.myEmailAddress + '>';
+  Accounts.emailTemplates.from = 'Head Start <sletladi@gmail.com>';
   Accounts.emailTemplates.siteName = 'Head Start';
 
   // A Function that takes a user object and returns a String for the subject line of the email.
