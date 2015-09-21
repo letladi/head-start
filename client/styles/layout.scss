@@ -51,9 +51,13 @@ footer, div, hr, ul, p, table, form, textarea {
 }
 
 .nav {
-  display: none; text-align: center; margin: 0 auto; font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 100; clear: both; 
+  display: none; text-align: center; margin: 0 auto; font-size: 1.5rem; margin-bottom: 0.5rem; z-index: 100; clear: both; background-color: $ivory;
   ul {
-    padding: 0px; background-color: lighten($alazarinCrimson, 10%);
+    position: absolute; padding: 0px; 
+    background-color: lighten($alazarinCrimson, 10%); 
+    max-width: 250px; 
+    top: 10px;
+    right: 0px;
     &, * {
       color: white;
     }
@@ -71,9 +75,7 @@ footer, div, hr, ul, p, table, form, textarea {
       li {
         &:hover {
           background-color: lighten($ashGray, 26%);
-          &, * {
-            color: $alazarinCrimson;
-          }
+          &, * { color: $alazarinCrimson; }
         }
       }
     }
