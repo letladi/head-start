@@ -1,11 +1,14 @@
 # head-start
 ## A starting place for meteor applications
 
+[ This project is undergoing the changes listed below. Tread carefully ]
+
 ### Features
 - fully configured user registration and login system.
 - File upload/download.
 
 ### Upcoming Features
+ - Moving to FlowRouter
  - React/ES2015
  - Image Manupilation
  - Package everything
