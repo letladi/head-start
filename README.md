@@ -10,6 +10,7 @@
 ### Upcoming Features
  - Moving to FlowRouter
    - Add route to allow file download
+   - Implement authentication properly
  - React/ES2015
  - Image Manupilation
  - Package everything
