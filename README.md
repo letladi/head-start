@@ -13,7 +13,7 @@
  - React/ES2015
  - Image Manupilation
  - Package everything
- - Twitter Bootstrap integration
+ - Skeleton UI
  - Tests
 
 ### Packages Included
@@ -22,7 +22,7 @@
  - Accounts-password (meteor add accounts-password),
  - Email (meteor add email),
  - SASS (meteor add fourseven:scss),
- - Iron Router (meteor add iron:router)
+ - Flow Router (meteor add kadira:flow-router) & BlazeLayout (meteor kadira:blaze-layout)
  
  ### How to get started
  - Just clone the repo and put a settings.json file in the private/ folder
