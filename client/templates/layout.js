@@ -1,3 +1,5 @@
+BlazeLayout.setRoot('body');
+
 Template.layout.events({
   'click a[href*=#]:not([href=#])': function(ev) {
     if (!$(ev.target).attr('href')) return;

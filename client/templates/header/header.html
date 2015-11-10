@@ -15,17 +15,17 @@
       <ul class="clearfix">
         {{#if currentUser}}
           <li>
-            <a href="{{pathFor 'uploads'}}">Upload File(s)</a>
+            <a href="/uploads">Upload File(s)</a>
           </li>
           <li>
             <a href="#" class="logout">Logout</a>
           </li>
         {{else}}
           <li>
-            <a href="{{pathFor 'register'}}">Register</a>
+            <a href="/register">Register</a>
           </li>
           <li>
-            <a href="{{pathFor 'login' }}">Login</a>      
+            <a href="/login">Login</a>      
           </li>
         {{/if}}
       </ul>

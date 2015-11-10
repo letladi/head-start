@@ -8,8 +8,8 @@
 </head>
 <template name="layout">
   <div class="container">
-    {{> header }}
-    {{> yield }}
+    {{> Template.dynamic template=top }}
+    {{> Template.dynamic template=main }}
   </div>
 </template>
 
