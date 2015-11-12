@@ -4,17 +4,12 @@
 [ This project is undergoing the changes listed below. Tread carefully ]
 
 ### Features
-- fully configured user registration and login system.
-- File upload/download.
+- fully configured user registration and login system with email validation and password resets.
 
 ### Upcoming Features
- - Moving to FlowRouter
-   - Add route to allow file download
-   - Implement authentication properly
- - React/ES2015
- - Image Manupilation
- - Package everything
- - Skeleton UI
+
+ - ES2015
+ - Skeleton UI (in progress)
  - Tests
 
 ### Packages Included
