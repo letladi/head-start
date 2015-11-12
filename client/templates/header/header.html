@@ -1,26 +1,27 @@
 <template name="header">
-  <div class="row">   
-  <div class="six columns">
-    <h3>HeadStart</h3>
-  </div> 
-    <div class="six columns">
-      <ul>
+  <header class="main-header">
+    <div class="container">
+    <ul>
+        <li>
+          <a href="/">HeadStart</a>
+        </li>
         {{#if currentUser}}
-          <li>
+          <li class="u-pull-right">
             <a href="/uploads">Upload File(s)</a>
           </li>
-          <li>
+          <li class="u-pull-right">
             <a href="#" class="logout">Logout</a>
           </li>
         {{else}}
-          <li>
+          <li class="u-pull-right">
             <a href="/register">Register</a>
           </li>
-          <li>
+          <li class="u-pull-right">
             <a href="/login">Login</a>      
           </li>
         {{/if}}
       </ul> 
     </div>
-  </div>
+</header>
 </template>
+
