@@ -1,18 +1,10 @@
 <template name="header">
-  <div class="top-section clearfix">
-    
-    <div class="site-info">
-    <!-- <img src="img/logo.jpg" class="logo" >  -->
-    <a href="/">
-      <span class="title-1">Head</span><span class="title-2">Start</span>
-    </a>
-    </div>
-    
-    <div class="menu-btn">
-      <span class="fa fa-bars fa-2x btn js-show-nav"></span>
-    </div>
-    <div class="nav hide-nav">
-      <ul class="clearfix">
+  <div class="row">   
+  <div class="six columns">
+    <h3>HeadStart</h3>
+  </div> 
+    <div class="six columns">
+      <ul>
         {{#if currentUser}}
           <li>
             <a href="/uploads">Upload File(s)</a>
@@ -28,7 +20,7 @@
             <a href="/login">Login</a>      
           </li>
         {{/if}}
-      </ul>
+      </ul> 
     </div>
   </div>
 </template>

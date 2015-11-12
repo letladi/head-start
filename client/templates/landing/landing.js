@@ -1,7 +1,4 @@
 Template.landing.onRendered(function() {
-  
-  $('.container').addClass('landing');
-  
   // blink cursor on landing page - a better approach would be keyframes
   Meteor.setInterval(function() {
     if($('.console-cursor').css('visibility') === 'hidden') {
@@ -11,10 +8,6 @@ Template.landing.onRendered(function() {
     }
   }, 500);
   
-});
-
-Template.landing.onDestroyed(function() {
-  $('.container').removeClass('landing');
 });
 Template.landing.events({
   'click .menu-btn': function(ev) {
