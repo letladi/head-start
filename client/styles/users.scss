@@ -1,78 +1,24 @@
 @import "colors.scss";
 
 .users {
-  margin-top: 5rem; width: 100%; max-width: 250px; border: 1px solid lighten($gunMetal, 80%); text-align: center; background-color: white;
-  
-  .logo { width: 60px; margin-top: 1rem; }
   
   form {
-    margin-top: 10px; padding-bottom: 10px; background-color: transparent;
-    * {
-      display: block; margin: 0 auto; width: 90%;
-    }
-    input {
-      margin-top: 10px; margin-bottom: 10px; height: 50px; border: none; text-align: center; background-color: $shamRockGreen;
-      &:focus {
-        background-color: darken($shamRockGreen, 5%);
+      input:focus {
+        border: 1px solid darken($shamRockGreen, 5%);
       }
-    }
+
     
     input.error {
-      background-color: $alazarinCrimson;
+      border: 1px solid $alazarinCrimson;
     }
     
     hr {
       margin-top: 10px;
-    }
-     
-    [type=submit] {
-      background-color: $carolineBlue; transition: 0.5s;
-      &:hover {
-        background-color: darken($carolineBlue, 10%);
-      }
-      &:focus {
-        background-color: darken($carolineBlue, 5%);
-      }
-    }
-    
-    [disabled=disabled],  [disabled=disabled]:hover {
-      background-color: lighten($carolineBlue, 10%);
-    }    
+    }   
   }
   
   a, span {
-    font-size: 0.8rem; transition: 0.4s;
+    transition: 0.4s;
   }
   
-  .terms-link {
-    *, & {
-      color: $ashGray;
-    }
-    a {  
-      display: block;     
-      &:hover {
-        color: darken($ashGray, 30%);
-      }
-    }
-  }
- 
-  .other-action  {
-    padding-bottom: 20px;  
-    a {
-      display: inline; color: $ashGray;
-      &:hover {
-        border-bottom: 1px dotted lighten($ashGray, 10%);
-      }
-    }
-   } 
-}
-
-.user-terms {
-    padding-top:100px; width: 80%; color: $ashGray; text-align: center;
-    h1 {
-      font-size: 1.2rem; text-decoration: underline; margin-bottom: 1rem;
-    }
-    p {
-      margin-top: 20px;
-    }
 }
