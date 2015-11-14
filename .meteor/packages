@@ -9,9 +9,6 @@ chrismbeckett:toastr
 email
 accounts-password
 underscore
-vsivsi:file-collection
-benjaminrh:jquery-cookie
-numeral:numeral
 standard-minifiers
 meteor-base
 mobile-experience
