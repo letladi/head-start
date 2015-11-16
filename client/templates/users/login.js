@@ -1,9 +1,11 @@
 Template.login.events({
-  'keyup [name=email]': function(ev) {
-    form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
+  'keyup #email': function(ev) {
+    console.log(ev.target);
+    form.validationClasses('#email', validations.validEmail, [form.email()]);
   },
-  'keyup [name=password]': function(ev) {
-    form.validationClasses('[name=password]', validations.validLength, [form.password()]);
+  'keyup #password': function(ev) {
+    console.log(ev.target);
+    form.validationClasses('#password', validations.validLength, [form.password()]);
   },
   'submit .login': function(ev) {
     ev.preventDefault();

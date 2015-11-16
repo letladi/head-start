@@ -5,10 +5,10 @@ form = {
     }, true);
   },
   email: function() {
-    return $('[name=email]').val().trim();
+    return $('#email').val().trim();
   },
   password: function() {
-    return $('[name=password]').val().trim();
+    return $('#password').val().trim();
   },
   passwordConfirmation: function() {
     return $('[name=confirm-password]').val().trim();
