@@ -1,8 +1,8 @@
 <template name="login">
 <form class="login">
-  <div class="users row">
+  <div class="row">
     <div class="twelve columns">
-      <label for="email">Your email</label>
+      <label for="email">Email</label>
       <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="email">
     </div>
     <div class="twelve columns">
@@ -14,14 +14,14 @@
     <input type="checkbox">
     <span class="label-body">Send a copy to yourself</span>
   </label>
-  <input class="button-primary u-full-width" type="submit" value="Submit" >
+  <input class="button-primary u-full-width" type="submit" value="Login" name="login">
 </form> 
 <div class="row alternate-actions">
   <div class="twelve columns">
-  <a href="/register">Not Registered</a>
+  <a href="/register">Already Registered?</a>
   </div>
   <div class="twelve columns">
-    <a href="/forgotPassword">Forgot Password</a>
+    <a href="/forgotPassword">Forgot Password?</a>
   </div>
 </div>
 </template>

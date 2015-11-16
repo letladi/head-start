@@ -11,7 +11,7 @@ form = {
     return $('#password').val().trim();
   },
   passwordConfirmation: function() {
-    return $('[name=confirm-password]').val().trim();
+    return $('#confirm-password').val().trim();
   },
   validationClasses: function(elementSelector, elementValidator, validatorArgArray) {
     (!elementValidator.apply(null, validatorArgArray)) ? 

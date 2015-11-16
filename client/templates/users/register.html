@@ -1,4 +1,5 @@
 <template name="register">
+<!--
   <div class="users">
     <form class="register">
       <input type="email" name="email" placeholder="Email" >
@@ -15,4 +16,33 @@
       </div>
     </form>
   </div>
+-->
+
+<form class="register">
+  <div class="row">
+    <div class="twelve columns">
+      <label for="email">Email</label>
+      <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="email">
+    </div>
+    <div class="twelve columns">
+      <label for="password">Password</label>
+      <input class="u-full-width" type="password" placeholder="hard-to-guess-word" id="password">
+    </div>
+    <div class="twelve columns">
+      <label for="password">Password Confirmation</label>
+      <input class="u-full-width" type="password" placeholder="hard-to-guess-word" id="confirm-password">
+    </div>
+  <label class="example-send-yourself-copy">
+    <input type="checkbox" checked class="accept-user-terms">
+    <span class="label-body">Accept user <a href="/user-terms">terms</a></span>
+  </label>
+  <input class="button-primary u-full-width" type="submit" value="Register" name="register">
+  </div>
+</form> 
+<div class="row alternate-actions">
+  <div class="twelve columns">
+  <a href="/register">Registered?</a>
+  </div>
+</div>
+
 </template>

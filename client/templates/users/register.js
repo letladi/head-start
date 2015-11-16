@@ -1,8 +1,8 @@
 Template.register.events({
-  'keyup [name=email]': function(ev) {
+  'keyup #email': function(ev) {
     form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
   },
-  'keyup [name=password]': function(ev) {
+  'keyup #password': function(ev) {
     form.validationClasses('[name=password]', validations.validLength, [form.password()]);
   },
   'submit .register': function(ev) {
