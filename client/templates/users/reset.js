@@ -1,6 +1,6 @@
 Template.forgotPassword.events({
-  'keyup [name=email]': function(ev) {
-    form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
+  'keyup #email': function(ev) {
+    form.validationClasses('#email', validations.validEmail, [form.email()]);
   },
   'submit .reset': function(ev) {
     ev.preventDefault();
@@ -24,11 +24,11 @@ Template.forgotPassword.events({
 });
 
 Template.resetPassword.events({
-  'keyup [name=password]': function(ev) {
-    form.validationClasses('[name=password]', validations.validLength, [form.password()]);
+  'keyup #password': function(ev) {
+    form.validationClasses('#password', validations.validLength, [form.password()]);
   },
-  'keyup [name=confirm-password]': function(ev) {
-    form.validationClasses('[name=confirm-password]', validations.validPasswordConfirmation, 
+  'keyup #confirm-password': function(ev) {
+    form.validationClasses('#confirm-password', validations.validPasswordConfirmation, 
                       [form.password(), form.passwordConfirmation()]);
   },
   'submit .reset': function(ev) {
