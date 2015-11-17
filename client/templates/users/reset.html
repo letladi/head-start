@@ -1,11 +1,13 @@
 <template name="forgotPassword">
-  <div class="users">
     <form class="reset">
-      <input type="email" name="email" placeholder="Email" >
-      <hr>
-      <input type="submit" name="reset" value="Send Email Link" >
+      <div class="row">
+        <div class="twelve columns">
+          <label for="email">Email</label>
+          <input class="u-full-width" type="email" name="email" placeholder="test@mailbox.com" id="email">
+        </div>
+      </div>
+      <input class="button-primary u-full-width" type="submit" name="reset" value="Send Email Link" >
     </form>
-  </div>
 </template>
 
 <template name="resetPassword">
