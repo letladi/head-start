@@ -1,24 +1,19 @@
 @import "colors.scss";
-
-.users {
   
-  form {
+  .register, .login, .reset {
+      margin: 0 auto;
+      max-width: 500px;
+      text-align: left;
+
+      .accept-terms {
+        text-align: center;
+      }
+
       input:focus {
         border: 1px solid darken($shamRockGreen, 5%);
       }
-
     
     input.error {
       border: 1px solid $alazarinCrimson;
-    }
-    
-    hr {
-      margin-top: 10px;
-    }   
+    } 
   }
-  
-  a, span {
-    transition: 0.4s;
-  }
-  
-}
