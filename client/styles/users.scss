@@ -1,6 +1,6 @@
 @import "colors.scss";
   
-  .register, .login, .reset {
+  .register, .login, .reset, .alternate-actions {
       margin: 0 auto;
       max-width: 500px;
       text-align: left;
@@ -16,4 +16,10 @@
     input.error {
       border: 1px solid $alazarinCrimson;
     } 
+  }
+
+  .alternate-actions {
+    div:nth-child(2) {
+      text-align: right;
+    }
   }
