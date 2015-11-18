@@ -1,10 +1,8 @@
 Template.login.events({
   'keyup #email': function(ev) {
-    console.log(ev.target);
     form.validationClasses('#email', validations.validEmail, [form.email()]);
   },
   'keyup #password': function(ev) {
-    console.log(ev.target);
     form.validationClasses('#password', validations.validLength, [form.password()]);
   },
   'submit .login': function(ev) {

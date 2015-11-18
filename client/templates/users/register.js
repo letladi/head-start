@@ -8,7 +8,9 @@ Template.register.events({
   'submit .register': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));
+    var valid = form.isValid(validations.validEmail(form.email())
+      , validations.validLength(form.password())
+      , $('.accept-user-terms').is(":checked"));
     
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
