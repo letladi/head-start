@@ -9,7 +9,6 @@
 ### Upcoming Features
 
  - ES2015
- - Skeleton UI (in progress)
  - Tests
 
 ### Packages Included
@@ -19,6 +18,7 @@
  - Email (meteor add email),
  - SASS (meteor add fourseven:scss),
  - Flow Router (meteor add kadira:flow-router) & BlazeLayout (meteor kadira:blaze-layout)
+ - Skeleton UI (meteor add skeleton:skeleton)
  
  ### How to get started
  - Just clone the repo and put a settings.json file in the private/ folder
