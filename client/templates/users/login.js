@@ -1,11 +1,11 @@
 Template.login.events({
-  'keyup #email': function(ev) {
+  'keyup #email': (ev) {
     form.validationClasses('#email', validations.validEmail, [form.email()]);
   },
-  'keyup #password': function(ev) {
+  'keyup #password': (ev) {
     form.validationClasses('#password', validations.validLength, [form.password()]);
   },
-  'submit .login': function(ev) {
+  'submit .login': (ev) {
     ev.preventDefault();
     
     const valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));

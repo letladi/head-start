@@ -1,19 +1,19 @@
 form = {
-  isValid: function() {
+  isValid() {
     return _.reduce(_.toArray(arguments), function(acc, val) {
       return acc && val;
     }, true);
   },
-  email: function() {
+  email() {
     return $('#email').val().trim();
   },
-  password: function() {
+  password() {
     return $('#password').val().trim();
   },
-  passwordConfirmation: function() {
+  passwordConfirmation() {
     return $('#confirm-password').val().trim();
   },
-  validationClasses: function(elementSelector, elementValidator, validatorArgArray) {
+  validationClasses(elementSelector, elementValidator, validatorArgArray) {
     (!elementValidator.apply(null, validatorArgArray)) ? 
       $(elementSelector).addClass('error') : 
       $(elementSelector).removeClass('error');

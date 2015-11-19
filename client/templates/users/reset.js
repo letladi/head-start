@@ -1,8 +1,8 @@
 Template.forgotPassword.events({
-  'keyup #email': function(ev) {
+  'keyup #email': (ev) {
     form.validationClasses('#email', validations.validEmail, [form.email()]);
   },
-  'submit .reset': function(ev) {
+  'submit .reset': (ev) {
     ev.preventDefault();
     
     const valid = form.isValid(validations.validEmail(form.email()));
@@ -24,14 +24,14 @@ Template.forgotPassword.events({
 });
 
 Template.resetPassword.events({
-  'keyup #password': function(ev) {
+  'keyup #password': (ev) {
     form.validationClasses('#password', validations.validLength, [form.password()]);
   },
-  'keyup #confirm-password': function(ev) {
+  'keyup #confirm-password': (ev) {
     form.validationClasses('#confirm-password', validations.validPasswordConfirmation, 
                       [form.password(), form.passwordConfirmation()]);
   },
-  'submit .reset': function(ev) {
+  'submit .reset': (ev) {
     ev.preventDefault();
     
     const valid = form.isValid(validations.validLength(form.password()), 

@@ -1,5 +1,5 @@
 Template.header.events({
-  'click .logout': function() {
+  'click .logout': () {
     Meteor.logout();
     Router.go('login');
     return false;
