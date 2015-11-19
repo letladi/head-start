@@ -1,6 +1,6 @@
-Template.landing.onRendered(function() {
+Template.landing.onRendered(()=> {
   // blink cursor on landing page - a better approach would be keyframes
-  Meteor.setInterval(function() {
+  Meteor.setInterval(()=> {
     if($('.console-cursor').css('visibility') === 'hidden') {
       $('.console-cursor').css('visibility', 'visible');
     } else {

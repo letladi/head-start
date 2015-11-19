@@ -5,12 +5,12 @@ Template.forgotPassword.events({
   'submit .reset': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.validEmail(form.email()));
+    const valid = form.isValid(validations.validEmail(form.email()));
     if (!valid) {
       toastr.error('The form is invalid, please try again.');
     } else {
       $('[name=reset]').val('Sending Link...').prop( "disabled", true );
-      Accounts.forgotPassword({email: form.email() }, function(err) {
+      Accounts.forgotPassword({email: form.email() }, (err)=> {
         if (err) {
           toastr.error(err.reason);
           $('[name=reset]').val('Send Email Link').prop( "disabled", false );
@@ -34,7 +34,7 @@ Template.resetPassword.events({
   'submit .reset': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.validLength(form.password()), 
+    const valid = form.isValid(validations.validLength(form.password()), 
                           validations.validPasswordConfirmation(form.password(), form.passwordConfirmation()));
     
     if (!valid)  {
@@ -42,7 +42,7 @@ Template.resetPassword.events({
       return false;
     } else {
       $('[name=reset]').val('Resetting Password...').attr('disabled', 'true');
-      Accounts.resetPassword(Session.get('reset-token'), form.password(), function(err) {
+      Accounts.resetPassword(Session.get('reset-token'), form.password(), (err)=> {
         if (err) {
           toastr.error(err.reason);
         } else {
@@ -55,7 +55,7 @@ Template.resetPassword.events({
   }
 });
 
-Accounts.onResetPasswordLink(function(token, _) {
+Accounts.onResetPasswordLink((token, _)=> {
   Session.set('reset-token', token);
   Router.go('resetPassword');
 });

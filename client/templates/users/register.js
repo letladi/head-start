@@ -8,7 +8,7 @@ Template.register.events({
   'submit .register': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.validEmail(form.email())
+    const valid = form.isValid(validations.validEmail(form.email())
       , validations.validLength(form.password())
       , $('.accept-user-terms').is(":checked"));
     
@@ -19,7 +19,7 @@ Template.register.events({
       Accounts.createUser({
         email: form.email(),
         password: form.password()
-      }, function(err) {
+      }, (err)=> {
         if (err) {
           $('[name=register]').val('Register').prop( "disabled" , false );
           toastr.error(err.reason);
@@ -32,9 +32,9 @@ Template.register.events({
   }
 });
 
-Accounts.onEmailVerificationLink(function(token, done) {
+Accounts.onEmailVerificationLink((token, done)=> {
   done();
-  Accounts.verifyEmail(token, function(err) {
+  Accounts.verifyEmail(token, (err)=> {
     if (err) {
       toastr.error(err.reason);
     }

@@ -8,14 +8,14 @@ Template.login.events({
   'submit .login': function(ev) {
     ev.preventDefault();
     
-    var valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));
+    const valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));
     if (!valid)  {
       toastr.error('The Form is invalid. Please try again');
       return false;
     } else {
       $('[name=login]').val('Logging In...').prop( "disabled", true );
       Meteor.loginWithPassword(form.email(), form.password(), 
-        function(err) {
+        (err)=> {
           if (err) {
             $('[name=login]').val('Login').prop( "disabled", false );
             toastr.error(err.reason);
