@@ -1,14 +1,10 @@
 # head-start
 ## A starting place for meteor applications
 
-[ This project is undergoing the changes listed below. Tread carefully ]
-
 ### Features
 - fully configured user registration and login system with email validation and password resets.
 
 ### Upcoming Features
-
- - ES2015
  - Tests
 
 ### Packages Included
