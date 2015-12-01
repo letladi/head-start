@@ -1,26 +1,24 @@
 <template name="header">
-  <header class="main-header u-full-width">
-    <div class="container">
-    <ul>
-        <li>
-          <a href="/">HeadStart</a>
-        </li>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">Head-Start</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if currentUser}}
-          <li class="u-pull-right">
-          </li>
-          <li class="u-pull-right">
-            <a href="#" class="logout">Logout</a>
-          </li>
-        {{else}}
-          <li class="u-pull-right">
-            <a href="/register">Register</a>
-          </li>
-          <li class="u-pull-right">
-            <a href="/login">Login</a>      
-          </li>
-        {{/if}}
-      </ul> 
+            <li>
+            </li>
+            <li>
+              <a href="#" class="logout">Logout</a>
+            </li>
+          {{else}}
+            <li>
+              <a href="/register">Register</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>      
+            </li>
+          {{/if}}
+      </ul>
     </div>
-</header>
+  </nav>
 </template>
 
