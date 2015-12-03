@@ -1,8 +1,9 @@
 <template name="header">
-  <nav class="row">
+  <nav role="navigation">
     <div class="nav-wrapper">
-      <a href="/" class="left brand-logo">Head-Start</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="/" id="logo-container" class="brand-logo">Head-Start</a>
+
+      <ul class="right hide-on-med-and-down">
         {{#if currentUser}}
             <li>
             </li>
@@ -18,6 +19,25 @@
             </li>
           {{/if}}
       </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        {{#if currentUser}}
+            <li>
+            </li>
+            <li>
+              <a href="#" class="logout">Logout</a>
+            </li>
+          {{else}}
+            <li>
+              <a href="/register">Register</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>      
+            </li>
+          {{/if}}
+      </ul>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 </template>
