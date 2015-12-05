@@ -7,16 +7,16 @@ Template.forgotPassword.events({
     
     const valid = form.isValid(validations.validEmail(form.email()));
     if (!valid) {
-      Materialize.toast('The form is invalid, please try again.');
+      Materialize.toast('The form is invalid, please try again.', 3000);
     } else {
       $('[name=reset]').val('Sending Link...').prop( "disabled", true );
       Accounts.forgotPassword({email: form.email() }, (err)=> {
         if (err) {
-          Materialize.toast(err.reason);
+          Materialize.toast(err.reason, 3000);
           $('[name=reset]').val('Send Email Link').prop( "disabled", false );
         } else {
           $('[name=reset]').val('Reset Link Sent');
-          Materialize.toast('Please check your email to reset password');
+          Materialize.toast('Please check your email to reset password', 3000);
         }
       });
     }
@@ -38,16 +38,16 @@ Template.resetPassword.events({
                           validations.validPasswordConfirmation(form.password(), form.passwordConfirmation()));
     
     if (!valid)  {
-      Materialize.toast('The Form is invalid. Please try again');
+      Materialize.toast('The Form is invalid. Please try again', 3000);
       return false;
     } else {
       $('[name=reset]').val('Resetting Password...').attr('disabled', 'true');
       Accounts.resetPassword(Session.get('reset-token'), form.password(), (err)=> {
         if (err) {
-          Materialize.toast(err.reason);
+          Materialize.toast(err.reason, 3000);
         } else {
           $('[name=reset]').val('Password Reset...');
-          Materialize.toast('Password reset. You can now login');
+          Materialize.toast('Password reset. You can now login', 3000);
           Router.go('login');
         }
       })

@@ -14,7 +14,7 @@ Template.register.events({
       , $('.accept-user-terms').is(":checked"));
     
     if (!valid) {
-      Materialize.toast('The form is invalid, please try again.');
+      Materialize.toast('The form is invalid, please try again.', 3000);
     } else {
       $('[name=register]').val('Registering...').prop( "disabled" , true );
       Accounts.createUser({
@@ -23,7 +23,7 @@ Template.register.events({
       }, (err)=> {
         if (err) {
           $('[name=register]').val('Register').prop( "disabled" , false );
-          Materialize.toast(err.reason);
+          Materialize.toast(err.reason, 3000);
         } else {
           Meteor.call('verifyUserEmail');
           Router.go('dashboard');
@@ -37,7 +37,7 @@ Accounts.onEmailVerificationLink((token, done)=> {
   done();
   Accounts.verifyEmail(token, (err)=> {
     if (err) {
-      Materialize.toast(err.reason);
+      Materialize.toast(err.reason, 3000);
     }
   }); 
   Router.go('dashboard');
