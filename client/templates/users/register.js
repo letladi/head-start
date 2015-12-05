@@ -1,3 +1,4 @@
+
 Template.register.events({
   'keyup #email': (ev)=> {
     form.validationClasses('[name=email]', validations.validEmail, [form.email()]);
@@ -13,7 +14,7 @@ Template.register.events({
       , $('.accept-user-terms').is(":checked"));
     
     if (!valid) {
-      toastr.error('The form is invalid, please try again.');
+      Materialize.toast('The form is invalid, please try again.');
     } else {
       $('[name=register]').val('Registering...').prop( "disabled" , true );
       Accounts.createUser({
@@ -22,7 +23,7 @@ Template.register.events({
       }, (err)=> {
         if (err) {
           $('[name=register]').val('Register').prop( "disabled" , false );
-          toastr.error(err.reason);
+          Materialize.toast(err.reason);
         } else {
           Meteor.call('verifyUserEmail');
           Router.go('dashboard');
@@ -36,7 +37,7 @@ Accounts.onEmailVerificationLink((token, done)=> {
   done();
   Accounts.verifyEmail(token, (err)=> {
     if (err) {
-      toastr.error(err.reason);
+      Materialize.toast(err.reason);
     }
   }); 
   Router.go('dashboard');

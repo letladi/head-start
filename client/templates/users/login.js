@@ -10,7 +10,7 @@ Template.login.events({
     
     const valid = form.isValid(validations.validEmail(form.email()), validations.validLength(form.password()));
     if (!valid)  {
-      toastr.error('The Form is invalid. Please try again');
+      Materialize.toast('The Form is invalid. Please try again');
       return false;
     } else {
       $('[name=login]').val('Logging In...').prop( "disabled", true );
@@ -18,10 +18,9 @@ Template.login.events({
         (err)=> {
           if (err) {
             $('[name=login]').val('Login').prop( "disabled", false );
-            toastr.error(err.reason);
+            Materialize.toast(err.reason);
           } else {
             Router.go('dashboard');
-            toastr.success('Welcome Back');
           }
       });
     }
