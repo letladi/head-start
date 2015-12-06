@@ -9,12 +9,11 @@
 
 ### Packages Included
  - Underscore (meteor add underscore),
- - Toastr (meteor add chrismbeckett:toastr),
  - Accounts-password (meteor add accounts-password),
  - Email (meteor add email),
  - SASS (meteor add fourseven:scss),
  - Flow Router (meteor add kadira:flow-router) & BlazeLayout (meteor kadira:blaze-layout)
- - Skeleton UI (meteor add skeleton:skeleton)
+ - Materialize (meteor add materialize:materialize)
  
  ### How to get started
  - Just clone the repo and put a settings.json file in the private/ folder
