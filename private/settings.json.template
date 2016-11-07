@@ -1,3 +1,0 @@
-{
-  "MAIL_URL": "smtp://<full-email-address>:<password>@smtp.<email-server-domain>:<smtp-port>/"
-}
