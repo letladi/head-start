@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+env/
+npm-debug.log
+.idea/
+dump.rdb
+.vscode/
+public/*
+dist
+config/environmentVariables.js

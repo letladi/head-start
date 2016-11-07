@@ -1,0 +1,50 @@
+{
+  "name": "head-start",
+  "version": "0.0.1",
+  "description": "Boilerplate project for building Isomorphic apps using Hapi and React",
+  "scripts": {
+    "prepare-db": "knex init && mv knexfile.js db",
+    "generate-migration": "knex migrate:make --knexfile db/knexfile.js",
+    "rollback-migration": "knex migrate:rollback --knexfile db/knexfile.js",
+    "seed-db": "knex seed:make --knexfile db/knexfile.js",
+    "migrate": "knex migrate:latest --knexfile db/knexfile.js",
+    "test": "tap app/**/test/*.js",
+    "lint": "eslint config db app"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Letladi/head-start.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Letladi/head-start/issues"
+  },
+  "homepage": "https://github.com/Letladi/head-start#readme",
+  "author": "Letladi Sebesho <sletladi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bookshelf": "^0.10.2",
+    "cross-env": "^1.0.8",
+    "hapi": "^15.2.0",
+    "knex": "^0.12.6",
+    "pg": "^6.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "chai": "^3.5.0",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.3.0",
+    "eslint-plugin-react": "^5.1.1",
+    "pre-commit": "^1.1.3",
+    "sinon": "^1.17.4",
+    "tap": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=7.0.0"
+  }
+}
