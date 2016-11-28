@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Boilerplate project for building Isomorphic apps using Hapi and React",
   "scripts": {
-    "prepare-db": "knex init && mv knexfile.js db",
+    "init:db": "knex init && mv knexfile.js db",
     "generate-migration": "knex migrate:make --knexfile db/knexfile.js",
     "rollback-migration": "knex migrate:rollback --knexfile db/knexfile.js",
     "seed-db": "knex seed:make --knexfile db/knexfile.js",
@@ -45,6 +45,6 @@
     "tap": "^8.0.0"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=6.9.1"
   }
 }
