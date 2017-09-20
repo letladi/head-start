@@ -1,50 +1,102 @@
 {
-  "name": "head-start",
-  "version": "0.0.1",
-  "description": "Boilerplate project for building Isomorphic apps using Hapi and React",
-  "scripts": {
-    "init:db": "knex init && mv knexfile.js db",
-    "generate-migration": "knex migrate:make --knexfile db/knexfile.js",
-    "rollback-migration": "knex migrate:rollback --knexfile db/knexfile.js",
-    "seed-db": "knex seed:make --knexfile db/knexfile.js",
-    "migrate": "knex migrate:latest --knexfile db/knexfile.js",
-    "test": "tap app/**/test/*.js",
-    "lint": "eslint config db app"
-  },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Letladi/head-start.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Letladi/head-start/issues"
-  },
-  "homepage": "https://github.com/Letladi/head-start#readme",
-  "author": "Letladi Sebesho <sletladi@gmail.com>",
+  "name": "marvin",
+  "version": "0.2.1",
+  "private": false,
   "license": "MIT",
-  "dependencies": {
-    "bookshelf": "^0.10.2",
-    "cross-env": "^1.0.8",
-    "hapi": "^15.2.0",
-    "knex": "^0.12.6",
-    "pg": "^6.1.0"
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "client:dev": "webpack-dashboard -t 'Marvin' -- webpack-dev-server",
+    "client:watch": "webpack",
+    "client:build": "npm run clean && NODE_ENV=\"production\" webpack",
+    "client:preview": "npm run clean && NODE_ENV=\"production\" webpack-dev-server",
+    "server:watch": "SERVER_RENDER=\"true\" webpack --config webpack.config.server.js",
+    "server:restart": "nodemon ./build/server.js",
+    "server:build": "SERVER_RENDER=\"true\" NODE_ENV=\"production\" webpack --config webpack.config.server.js",
+    "server:dev": "npm run clean && concurrently --prefix \"[{name}]\" --names \"webpack-server,watch-server\" --kill-others \"npm run server:watch\" \"npm run server:restart\"",
+    "universal:dev": "concurrently --prefix \"[{name}]\" --names \"webpack-server,webpack-client,watch-server\" --kill-others \"npm run server:watch\" \"npm run client:watch\" \"npm run server:restart\"",
+    "universal:build": "npm run client:build && npm run server:build",
+    "clean": "rm -rf ./build",
+    "lint-hook": "eslint ./source/js ./webpack ./*.js -f table --ext .js --ext .jsx",
+    "lint": "npm run lint-hook --silent || true",
+    "hook-add": "prepush install",
+    "hook-remove": "prepush remove",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "chai": "^3.5.0",
-    "eslint": "^2.11.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.8.1",
-    "eslint-plugin-jsx-a11y": "^1.3.0",
-    "eslint-plugin-react": "^5.1.1",
-    "pre-commit": "^1.1.3",
-    "sinon": "^1.17.4",
-    "tap": "^8.0.0"
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-runtime": "^6.6.1",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.7.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "postcss-loader": "^2.0.6",
+    "prepush": "^3.1.11",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-svg-loader": "^1.1.1",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "svgo": "^0.7.2",
+    "svgo-loader": "^1.2.1",
+    "webpack": "^3.4.1",
+    "webpack-dashboard": "^1.0.0-5",
+    "webpack-dev-server": "^2.6.1"
   },
-  "engines": {
-    "node": ">=6.9.1"
-  }
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "es6-promise": "^4.1.1",
+    "eslint": "^3.19.0",
+    "express": "^4.15.3",
+    "file-loader": "^0.11.2",
+    "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "transit-immutable-js": "^0.7.0",
+    "transit-js": "^0.8.846"
+  },
+  "description": "Starter boilerplate for React and Redux, using Webpack 3",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/workco/marvin.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "webpack2",
+    "boilerplate"
+  ],
+  "author": "Stanko",
+  "bugs": {
+    "url": "https://github.com/workco/marvin/issues"
+  },
+  "homepage": "https://github.com/workco/marvin#readme",
+  "prepush": [
+    "npm run lint-hook --silent"
+  ]
 }

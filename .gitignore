@@ -1,10 +1,7 @@
-.DS_Store
-node_modules/
-app/env/
-npm-debug.log
-.idea/
-dump.rdb
-.vscode/
-public/*
-dist
-app/config/environmentVariables.js
+.DS_STORE
+node_modules
+build
+.module-cache
+*.log*
+_nogit
+todo.md
