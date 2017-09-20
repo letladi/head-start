@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 import logger from 'dev/logger'
+import { isProduction } from 'config/constants'
 
 // Remove if you are not using server rendering
 // Also remove following packages from package.json
@@ -11,10 +12,8 @@ import logger from 'dev/logger'
 // "concurrently"
 import transit from 'transit-immutable-js'
 
-
-import rootReducer from 'reducers'
-
-const isProduction = process.env.NODE_ENV === 'production'
+import rootReducer from 'state/reducers'
+import rootSaga from 'state/sagas'
 
 // Remove if you are not using server rendering
 let INIT_STATE = null
@@ -23,13 +22,16 @@ let INIT_STATE = null
 try {
   INIT_STATE = __MARVIN_DEHYDRATED_STATE // eslint-disable-line no-undef
 } catch (e) {
-  console.log('Mavin: No dehydrated state') // eslint-disable-line no-console
+  console.log('App: No dehydrated state') // eslint-disable-line no-console
 }
 
 // Remove if you are not using server rendering
 if (INIT_STATE) {
   INIT_STATE = transit.fromJSON(INIT_STATE)
 }
+
+// create Saga middleware
+const sagaMiddleware = createSagaMiddleware()
 
 // Creating store
 export default () => {
@@ -38,11 +40,11 @@ export default () => {
 
   if (isProduction) {
     // In production adding only thunk middleware
-    middleware = applyMiddleware(thunk)
+    middleware = applyMiddleware(sagaMiddleware)
   } else {
     // In development mode beside thunk
     // logger and DevTools are added
-    middleware = applyMiddleware(thunk, logger)
+    middleware = applyMiddleware(sagaMiddleware, logger)
 
     // Enable DevTools if browser extension is installed
     if (!process.env.SERVER_RENDER && window.__REDUX_DEVTOOLS_EXTENSION__) { // eslint-disable-line
@@ -70,11 +72,11 @@ export default () => {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers/index').default // eslint-disable-line global-require
+    module.hot.accept('../state/reducers', () => {
+      const nextRootReducer = require('../state/reducers/index').default // eslint-disable-line global-require
       store.replaceReducer(nextRootReducer)
     })
   }
-
+  sagaMiddleware.run(rootSaga)
   return store
 }

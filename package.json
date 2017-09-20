@@ -1,12 +1,14 @@
 {
-  "name": "marvin",
-  "version": "0.2.1",
-  "private": false,
-  "license": "MIT",
+  "name": "ticketing-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Jenny Commercial License",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "client:dev": "webpack-dashboard -t 'Marvin' -- webpack-dev-server",
+    "start:production": "pm2 start build/server.js",
+    "stop:production": "pm2 stop build/server.js",
+    "client:dev": "webpack-dashboard -t 'Jenny-Dev: Ticketing frontend' -- webpack-dev-server",
     "client:watch": "webpack",
     "client:build": "npm run clean && NODE_ENV=\"production\" webpack",
     "client:preview": "npm run clean && NODE_ENV=\"production\" webpack-dev-server",
@@ -26,7 +28,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.7.2",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-syntax-decorators": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.6.0",
@@ -39,12 +41,13 @@
     "babel-runtime": "^6.6.1",
     "concurrently": "^3.4.0",
     "css-loader": "^0.28.4",
-    "eslint": "^4.7.0",
+    "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.24.1",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
@@ -57,18 +60,24 @@
     "style-loader": "^0.18.2",
     "svgo": "^0.7.2",
     "svgo-loader": "^1.2.1",
+    "url-loader": "^0.5.9",
     "webpack": "^3.4.1",
-    "webpack-dashboard": "^1.0.0-5",
+    "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
-    "es6-promise": "^4.1.1",
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
     "eslint": "^3.19.0",
     "express": "^4.15.3",
-    "file-loader": "^0.11.2",
+    "express-session": "^1.15.5",
     "immutable": "^3.8.1",
-    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pm2": "^2.6.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -76,26 +85,25 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
+    "redux-saga": "^0.15.6",
+    "semantic-ui-react": "0.71.4",
     "transit-immutable-js": "^0.7.0",
     "transit-js": "^0.8.846"
   },
-  "description": "Starter boilerplate for React and Redux, using Webpack 3",
+  "description": "React frontend for the ticketing system",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/workco/marvin.git"
+    "url": "git+ssh://git@github.com/jennycloud/react-ticketing-frontend.git"
   },
   "keywords": [
-    "react",
-    "redux",
-    "webpack2",
-    "boilerplate"
+    "ticketing"
   ],
-  "author": "Stanko",
+  "author": "Jenny Dev Team",
+  "boilerplate": "git+ssh://git@github.com/jennycloud/react-ticketing-frontend.git",
   "bugs": {
-    "url": "https://github.com/workco/marvin/issues"
+    "url": "https://github.com/jennycloud/react-ticketing-frontend/issues"
   },
-  "homepage": "https://github.com/workco/marvin#readme",
+  "homepage": "https://github.com/jennycloud/react-ticketing-frontend#readme",
   "prepush": [
     "npm run lint-hook --silent"
   ]

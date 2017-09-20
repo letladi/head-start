@@ -51,3 +51,6 @@ rules:
   react/prefer-stateless-function: 0
   react/require-default-props: 0
   semi: [2, "never"]
+  eqeqeq: 0
+  no-void: 0
+  space-unary-ops: 0

@@ -4,18 +4,13 @@ import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import 'babel-polyfill'
 
-import { cacheStore } from 'state/actions/util'
 import configureStore from 'config/store'
 import Client from 'views/Client'
 
 // Load SCSS
-import '../scss/app.scss'
+import '../../scss/app.scss'
 
-export const store = configureStore()
-
-// cache the store so it can be accessed by parts that need it
-store.dispatch(cacheStore(store))
-
+const store = configureStore()
 
 const render = Component => {
   ReactDOM.render(
