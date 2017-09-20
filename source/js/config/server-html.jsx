@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import PropTypes from 'prop-types';
-import { outputFiles } from '../../../webpack/output-files';
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import PropTypes from 'prop-types'
+import { outputFiles } from '../../../webpack/output-files'
 
 const ServerHtml = ({ appHtml, dehydratedState }) => (
   <html lang='en'>
@@ -25,15 +25,15 @@ const ServerHtml = ({ appHtml, dehydratedState }) => (
       <script type='text/javascript' src={ `/${ outputFiles.client }` } />
     </body>
   </html>
-);
+)
 
 ServerHtml.propTypes = {
   appHtml: PropTypes.string,
   dehydratedState: PropTypes.string,
-};
+}
 
 const getServerHtml = (appHtml, dehydratedState = null) => {
-  return `<!doctype html>${ ReactDOMServer.renderToString(<ServerHtml appHtml={ appHtml } dehydratedState={ dehydratedState } />) }`;
-};
+  return `<!doctype html>${ ReactDOMServer.renderToString(<ServerHtml appHtml={ appHtml } dehydratedState={ dehydratedState } />) }`
+}
 
-export default getServerHtml;
+export default getServerHtml

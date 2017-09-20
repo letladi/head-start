@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Routes from 'config/routes';
+import React, { Component } from 'react'
+import Routes from 'config/routes'
 
-import Menu from 'components/Global/Menu';
+import Menu from 'components/Global/Menu'
 
 export default class App extends Component {
   render() {
@@ -13,6 +13,6 @@ export default class App extends Component {
           <Routes />
         </div>
       </div>
-    );
+    )
   }
 }

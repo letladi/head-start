@@ -1,5 +1,5 @@
-const paths = require('./config').paths;
-const IS_PRODUCTION = require('./config').IS_PRODUCTION;
+const paths = require('./config').paths
+const IS_PRODUCTION = require('./config').IS_PRODUCTION
 
 const devServer = {
   contentBase: IS_PRODUCTION ? paths.build : paths.source,
@@ -23,8 +23,8 @@ const devServer = {
     warnings: true,
     colors: true,
   },
-};
+}
 
 module.exports = {
   devServer,
-};
+}

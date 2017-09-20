@@ -1,24 +1,24 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 
-const paths = require('./webpack/config').paths;
-const outputFiles = require('./webpack/config').outputFiles;
-const rules = require('./webpack/config').rules;
-const plugins = require('./webpack/config').plugins;
-const resolve = require('./webpack/config').resolve;
-const IS_PRODUCTION = require('./webpack/config').IS_PRODUCTION;
-const IS_DEVELOPMENT = require('./webpack/config').IS_DEVELOPMENT;
+const paths = require('./webpack/config').paths
+const outputFiles = require('./webpack/config').outputFiles
+const rules = require('./webpack/config').rules
+const plugins = require('./webpack/config').plugins
+const resolve = require('./webpack/config').resolve
+const IS_PRODUCTION = require('./webpack/config').IS_PRODUCTION
+const IS_DEVELOPMENT = require('./webpack/config').IS_DEVELOPMENT
 
-const devServer = require('./webpack/dev-server').devServer;
+const devServer = require('./webpack/dev-server').devServer
 
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 // Default client app entry file
 const entry = [
   path.join(paths.javascript, 'client.js'),
-];
+]
 
 plugins.push(
   // Creates vendor chunk from modules coming from node_modules folder
@@ -26,8 +26,8 @@ plugins.push(
     name: 'vendor',
     filename: outputFiles.vendor,
     minChunks(module) {
-      const context = module.context;
-      return context && context.indexOf('node_modules') >= 0;
+      const context = module.context
+      return context && context.indexOf('node_modules') >= 0
     },
   }),
   // Builds index.html from template
@@ -43,7 +43,7 @@ plugins.push(
       useShortDoctype: true,
     },
   })
-);
+)
 
 if (IS_DEVELOPMENT) {
   // Development plugins
@@ -55,12 +55,12 @@ if (IS_DEVELOPMENT) {
     new webpack.NoEmitOnErrorsPlugin(),
     // Webpack dashboard plugin
     new DashboardPlugin()
-  );
+  )
 
   // In development we add 'react-hot-loader' for .js/.jsx files
   // Check rules in config.js
-  rules[0].use.unshift('react-hot-loader/webpack');
-  entry.unshift('react-hot-loader/patch');
+  rules[0].use.unshift('react-hot-loader/webpack')
+  entry.unshift('react-hot-loader/patch')
 }
 
 // Webpack config
@@ -80,4 +80,4 @@ module.exports = {
   resolve,
   plugins,
   devServer,
-};
+}

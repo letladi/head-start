@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { routeCodes } from 'config/routes';
-import workAndCoLogoImg from '../../../assets/img/workco-logo.svg';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import { routeCodes } from 'config/routes'
+import workAndCoLogoImg from '../../../assets/img/workco-logo.svg'
 
 export default class Menu extends Component {
   render() {
@@ -38,6 +38,6 @@ export default class Menu extends Component {
           </NavLink>
         </div>
       </div>
-    );
+    )
   }
 }

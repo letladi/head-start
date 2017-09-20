@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class About extends Component {
   render() {
@@ -17,6 +17,6 @@ export default class About extends Component {
           on <a href='https://github.com/workco/react-redux-webpack2-boilerplate'>GitHub</a>
         </p>
       </div>
-    );
+    )
   }
 }

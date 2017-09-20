@@ -1,14 +1,8 @@
-# Marvin ★★
+# Head Start ★★
 
-React and Redux, Webpack 2 boilerplate.
+React and Redux, Webpack 3 boilerplate.
 
-Marvin is internal project by [Work & Co](https://work.co).
-We love React and use it a lot. So Marvin is meant to be a starting point for our React projects.
-But as we love open source too, it is publicly available for anyone interested in using it.
-
-![Marvin](/marvin.jpg)
-
-Name comes from a fictional character [Marvin](https://en.wikipedia.org/wiki/Marvin_(character)), android from the [The Hitchhiker's Guide to the Galaxy](https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy) book as a homage to it's author [Douglas Adams](https://en.wikipedia.org/wiki/Douglas_Adams).
+This project builds on the [Marvin](git@github.com:Letladi/head-start.git) boilerplate by [Work & Co](https://work.co).
 
 ## Table of contents
 * [What is this?](#user-content-what-is-this)
@@ -43,7 +37,6 @@ By complete we mean it has examples for:
 - using assets (in CSS and components)
 - imports relative to the app root
 
-![Example dashboard](/marvin-screenshot.png)
 
 <sup>1</sup> Using source maps breaks urls in the CSS loader - https://github.com/webpack/css-loader/issues/232. Try [this](https://github.com/webpack/css-loader/issues/232#issuecomment-240449998) to fix it (but it breaks testing from local network).
 

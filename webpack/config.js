@@ -1,8 +1,8 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 const paths = {
   source: path.join(__dirname, '../source'),
@@ -10,14 +10,14 @@ const paths = {
   images: path.join(__dirname, '../source/assets/img'),
   svg: path.join(__dirname, '../source/assets/svg'),
   build: path.join(__dirname, '../build'),
-};
+}
 
-const outputFiles = require('./output-files').outputFiles;
+const outputFiles = require('./output-files').outputFiles
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const SERVER_RENDER = process.env.SERVER_RENDER === 'true';
-const IS_DEVELOPMENT = NODE_ENV === 'development';
-const IS_PRODUCTION = NODE_ENV === 'production';
+const NODE_ENV = process.env.NODE_ENV || 'development'
+const SERVER_RENDER = process.env.SERVER_RENDER === 'true'
+const IS_DEVELOPMENT = NODE_ENV === 'development'
+const IS_PRODUCTION = NODE_ENV === 'production'
 
 // ----------
 // PLUGINS
@@ -34,7 +34,7 @@ const plugins = [
       SERVER_RENDER: JSON.stringify(SERVER_RENDER) === 'true',
     },
   }),
-];
+]
 
 if (IS_PRODUCTION) {
   // Shared production plugins
@@ -58,13 +58,13 @@ if (IS_PRODUCTION) {
         comments: false,
       },
     })
-  );
+  )
 } else {
   // Shared development plugins
   plugins.push(
     // Enables pretty names instead of index
     new webpack.NamedModulesPlugin()
-  );
+  )
 }
 
 // ----------
@@ -114,7 +114,7 @@ const rules = [
       },
     ],
   },
-];
+]
 
 // Almost the same rule is used in both development and production
 // only diffence is source map param and ExtractTextPlugin
@@ -125,7 +125,7 @@ const getSassRule = () => {
       'last 3 version',
       'ie >= 10',
     ],
-  };
+  }
 
   const sassLoaders = [
     {
@@ -148,7 +148,7 @@ const getSassRule = () => {
       loader: 'sass-loader',
       options: { sourceMap: IS_DEVELOPMENT },
     },
-  ];
+  ]
 
   if (IS_PRODUCTION || SERVER_RENDER) {
     return {
@@ -156,7 +156,7 @@ const getSassRule = () => {
       loader: ExtractTextPlugin.extract({
         use: sassLoaders,
       }),
-    };
+    }
   }
 
   return {
@@ -166,11 +166,11 @@ const getSassRule = () => {
         loader: 'style-loader',
       },
     ].concat(sassLoaders),
-  };
-};
+  }
+}
 
 // Add SASS rule to common rules
-rules.push(getSassRule());
+rules.push(getSassRule())
 
 
 // ----------
@@ -183,7 +183,7 @@ const resolve = {
     path.join(__dirname, '../node_modules'),
     paths.javascript,
   ],
-};
+}
 
 module.exports = {
   outputFiles,
@@ -195,4 +195,4 @@ module.exports = {
   IS_PRODUCTION,
   NODE_ENV,
   SERVER_RENDER,
-};
+}

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import RouteStatus from 'components/Global/RouteStatus';
+import React, { Component } from 'react'
+import RouteStatus from 'components/Global/RouteStatus'
 
 export default class NotFound extends Component {
   render() {
@@ -9,6 +9,6 @@ export default class NotFound extends Component {
           <h1>Not Found</h1>
         </div>
       </RouteStatus>
-    );
+    )
   }
 }

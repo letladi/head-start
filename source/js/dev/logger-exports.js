@@ -1,5 +1,5 @@
-import { createLogger } from 'redux-logger';
-import { Map } from 'immutable';
+import { createLogger } from 'redux-logger'
+import { Map } from 'immutable'
 
 // Redux logger
 const logger = createLogger({
@@ -7,20 +7,20 @@ const logger = createLogger({
   // transforms Immutable maps from reducers
   // to the plain JS objects
   stateTransformer: (state) => {
-    const newState = {};
+    const newState = {}
 
     Object.keys(state).forEach((key) => {
-      const stateItem = state[key];
+      const stateItem = state[key]
 
       if (Map.isMap(stateItem)) {
-        newState[key] = stateItem.toJS();
+        newState[key] = stateItem.toJS()
       } else {
-        newState[key] = stateItem;
+        newState[key] = stateItem
       }
-    });
+    })
 
-    return newState;
+    return newState
   },
-});
+})
 
-export default logger;
+export default logger

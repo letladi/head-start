@@ -1,21 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux';
-import 'babel-polyfill';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+import 'babel-polyfill'
 
-import configureStore from 'config/store';
-import Client from 'views/Client';
+import configureStore from 'config/store'
+import Client from 'views/Client'
 
-import es6Promise from 'es6-promise';
-import 'isomorphic-fetch';
+import es6Promise from 'es6-promise'
+import 'isomorphic-fetch'
 
 // Load SCSS
-import '../scss/app.scss';
+import '../scss/app.scss'
 
-es6Promise.polyfill();
+es6Promise.polyfill()
 
-const store = configureStore();
+const store = configureStore()
 
 const render = Component => {
   ReactDOM.render(
@@ -25,16 +25,16 @@ const render = Component => {
       </Provider>
     </AppContainer>,
     document.getElementById('root')
-  );
-};
+  )
+}
 
 // Render app
-render(Client);
+render(Client)
 
 if (module.hot) {
   module.hot.accept('./views/Client/', () => {
-    const NewClient = require('./views/Client/index').default; // eslint-disable-line global-require
+    const NewClient = require('./views/Client/index').default // eslint-disable-line global-require
 
-    render(NewClient);
-  });
+    render(NewClient)
+  })
 }
