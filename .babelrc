@@ -17,6 +17,9 @@
     },
     "production": {
       "presets": ["react-optimize"]
+    },
+    "test": {
+      "presets": ["es2015"]
     }
   }
 }

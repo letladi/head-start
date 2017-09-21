@@ -1,7 +1,6 @@
 {
   "name": "head-start",
   "version": "0.0.1",
-  "private": true,
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -23,7 +22,7 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=\"test\" mocha --compilers js:babel-register --recursive source/js/**/*.spec.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -38,6 +37,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.26.0",
     "babel-runtime": "^6.6.1",
     "concurrently": "^3.4.0",
     "css-loader": "^0.28.4",

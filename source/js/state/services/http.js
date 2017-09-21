@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { FILE_UPLOAD_URL } from 'config/constants'
+import { FILE_UPLOAD_URL } from 'constants/urls'
 
 const HOST = 'http://localhost:8080/api'
 const buildURL = (endpoint) => `${ HOST }${ endpoint }`

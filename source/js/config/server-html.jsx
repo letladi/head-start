@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import PropTypes from 'prop-types'
-import { APPLICATION_NAME } from 'config/constants'
+import { APPLICATION_NAME } from 'constants/names'
 import { outputFiles } from '../../../webpack/output-files'
 
 const ServerHtml = ({ appHtml, dehydratedState }) => (

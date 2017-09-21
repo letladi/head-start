@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import logger from 'dev/logger'
-import { isProduction } from 'config/constants'
+import { isProduction } from 'constants/state'
 
 // Remove if you are not using server rendering
 // Also remove following packages from package.json

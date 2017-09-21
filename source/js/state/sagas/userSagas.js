@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 
-import { LOCAL_USER_STATE } from 'config/constants'
+import { LOCAL_USER_STATE } from 'constants/names'
 
 import {
   LOGIN_USER,
