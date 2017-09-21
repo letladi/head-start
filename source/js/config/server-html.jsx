@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import PropTypes from 'prop-types'
+import { APPLICATION_NAME } from 'config/constants'
 import { outputFiles } from '../../../webpack/output-files'
 
 const ServerHtml = ({ appHtml, dehydratedState }) => (
@@ -9,7 +10,7 @@ const ServerHtml = ({ appHtml, dehydratedState }) => (
       <meta charSet='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' />
 
-      <title>Jenny Ticketing System</title>
+      <title>{APPLICATION_NAME}</title>
 
       <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css' />
       <link rel='stylesheet' href={ `/${ outputFiles.css }` } />
@@ -20,7 +21,7 @@ const ServerHtml = ({ appHtml, dehydratedState }) => (
         dangerouslySetInnerHTML={ { __html: appHtml } } // eslint-disable-line
       />
       <script
-        dangerouslySetInnerHTML={ { __html: `var __MARVIN_DEHYDRATED_STATE = ${ dehydratedState };` } } // eslint-disable-line
+        dangerouslySetInnerHTML={ { __html: `var __DEHYDRATED_STATE = ${ dehydratedState };` } } // eslint-disable-line
       />
       <script type='text/javascript' src={ `/${ outputFiles.vendor }` } />
       <script type='text/javascript' src={ `/${ outputFiles.client }` } />

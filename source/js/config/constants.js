@@ -1,3 +1,5 @@
+export const APPLICATION_NAME = 'head-start'
+
 export const FILE_UPLOAD_URL = '/upload'
 
 export const isDevelopment = (process.env.NODE_ENV == 'development')

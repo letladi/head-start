@@ -1,14 +1,14 @@
 {
-  "name": "ticketing-frontend",
+  "name": "head-start",
   "version": "0.0.1",
   "private": true,
-  "license": "Jenny Commercial License",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "start:production": "pm2 start build/server.js",
     "stop:production": "pm2 stop build/server.js",
-    "client:dev": "webpack-dashboard -t 'Jenny-Dev: Ticketing frontend' -- webpack-dev-server",
+    "client:dev": "webpack-dashboard -t 'Head Start Boilerplate' -- webpack-dev-server",
     "client:watch": "webpack",
     "client:build": "npm run clean && NODE_ENV=\"production\" webpack",
     "client:preview": "npm run clean && NODE_ENV=\"production\" webpack-dev-server",
@@ -90,20 +90,20 @@
     "transit-immutable-js": "^0.7.0",
     "transit-js": "^0.8.846"
   },
-  "description": "React frontend for the ticketing system",
+  "description": "Boilerplate with react and express",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/jennycloud/react-ticketing-frontend.git"
+    "url": "git+ssh://git@github.com/letladi/head-start.git"
   },
   "keywords": [
-    "ticketing"
+    "boilerplate"
   ],
-  "author": "Jenny Dev Team",
-  "boilerplate": "git+ssh://git@github.com/jennycloud/react-ticketing-frontend.git",
+  "author": "Letladi Sebesho",
+  "boilerplate": "git+ssh://git@github.com/letladi/head-start.git",
   "bugs": {
-    "url": "https://github.com/jennycloud/react-ticketing-frontend/issues"
+    "url": "https://github.com/letladi/head-start/issues"
   },
-  "homepage": "https://github.com/jennycloud/react-ticketing-frontend#readme",
+  "homepage": "https://github.com/letladi/head-start#readme",
   "prepush": [
     "npm run lint-hook --silent"
   ]
