@@ -18,6 +18,8 @@ ecmaFeatures:
 
 env:
   browser: true
+  mocha: true
+  node: true
 
 rules:
   arrow-body-style: 0

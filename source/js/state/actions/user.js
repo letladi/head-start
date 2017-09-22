@@ -15,7 +15,7 @@ export const loginUser = (data) => ({
   data,
 })
 
-export const verifySession = () => ({
+export const verifyUserSession = () => ({
   type: VERIFY_USER_SESSION,
 })
 
