@@ -22,11 +22,7 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "npm run test:components && npm run test:utils && npm run test:state",
-    "test:components": "NODE_ENV=\"test\" mocha --compilers js:babel-register -r jsdom-global/register --recursive source/js/components/**/*.spec.js",
-    "test:utils": "NODE_ENV=\"test\" mocha --compilers js:babel-register -r jsdom-global/register --recursive source/js/util/**/*.spec.js",
-    "test:state": "NODE_ENV=\"test\" mocha --compilers js:babel-register -r jsdom-global/register --recursive source/js/state/**/*.spec.js",
-    "test:all": "NODE_ENV=\"test\" mocha --compilers js:babel-register -r jsdom-global/register --recursive source/js/**/*.spec.js"
+    "test": "jest"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -57,9 +53,9 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.24.1",
+    "jest": "^21.1.0",
     "jsdom": "^11.2.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^3.5.3",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "postcss-loader": "^2.0.6",
@@ -69,6 +65,7 @@
     "react-svg-loader": "^1.1.1",
     "react-test-renderer": "^15.6.1",
     "redux-logger": "^3.0.6",
+    "regenerator-runtime": "^0.11.0",
     "sass-loader": "^6.0.6",
     "sinon": "^3.3.0",
     "style-loader": "^0.18.2",
