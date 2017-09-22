@@ -13,7 +13,7 @@ export default class SessionNotice extends Component {
     verifyingSession: PropTypes.bool
   }
 
-  render() {
+  render() { 
     const { verifyingSession } = this.props
      if (utils.falsy(verifyingSession)) return null
     return (
