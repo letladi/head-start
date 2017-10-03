@@ -9,7 +9,7 @@ const UserForm = ({ onChange }) => (
     </Form.Field>
     <Form.Field>
       <Label pointing='below'>Password</Label>
-      <Input placeholder='Password' name='password' type='password' />
+      <Input placeholder='Password' name='password' type='password' onChange={onChange} />
     </Form.Field>
     <Form.Field>
       <Button type='submit'>Submit</Button>
@@ -26,11 +26,7 @@ export default class User extends Component {
   render() {
     const { requireLogin } = this.props
 
-    return requireLogin ? (
-      <Login {...this.props} />
-    ) : (
-      <Register {...this.props} />
-    )
+    return requireLogin ? <Login {...this.props} /> : <Register {...this.props} />
   }
 }
 
