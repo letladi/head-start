@@ -34,6 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      # # -e here configures the script to bomb out on an error
+      - run: bash -e scripts/test.sh
 
 

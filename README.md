@@ -1,4 +1,4 @@
-<h1 align="center"> Head Start ★★</h1>
+<h1 align="center">Head Start ★★</h1>
 
 <p align="center">
   <a href="https://circleci.com/gh/Letladi/head-start">
