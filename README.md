@@ -8,7 +8,17 @@
 
 <p align="center">React and Redux, Webpack 3 boilerplate.</p>
 
-<p align="center">This project builds on the [Marvin](git@github.com:Letladi/head-start.git) boilerplate by [Work & Co](https://work.co).</p>
+<p align="center">
+This project builds on the 
+  <a href="https://github.com/workco/marvin">
+    Marvin
+  </a>
+  boilerplate by 
+  <a href="https://work.co">
+    Work & Co
+  </a>
+  .
+</p>
 
 ## Table of contents
 * [What is this?](#user-content-what-is-this)
