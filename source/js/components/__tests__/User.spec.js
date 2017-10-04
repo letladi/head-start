@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
+import { Input, Message } from 'semantic-ui-react'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import sinon from 'sinon'
@@ -10,25 +10,24 @@ chai.use(chaiEnzyme())
 
 
 describe('User', () => {
-  xit('should render Register by default', () => {    
+  it('should render Register by default', () => {    
     const wrapper = shallow(<User />)
-    expect(<User />).to.contain(<Register />)
+    expect(wrapper).to.have.type(Register)
   })
 
-  xit('should render Login if requireLogin=true', () => {
+  it('should render Login if requireLogin=true', () => {
     const wrapper = shallow(<User requireLogin />)
-
-    expect(wrapper).to.contain(<Login />)
+    expect(wrapper).to.have.type(Login)
   })
 
-  xit('should not render Register and Login at the same time', () => {
+  it('should not render Register and Login at the same time', () => {
     const registerWrapper = shallow(<User />)
-    expect(registerWrapper).to.contain(<Register />)
-    expect(registerWrapper).to.not.contain(<Login />)
+    expect(registerWrapper).to.have.type(Register)
+    expect(registerWrapper).to.not.have.type(Login)
 
     const loginWrapper = shallow(<User requireLogin />)
-    expect(loginWrapper).to.contain(<Login />)
-    expect(loginWrapper).to.not.contain(<Register />)
+    expect(loginWrapper).to.have.type(Login)
+    expect(loginWrapper).to.not.have.type(Register)
   })
 
   it('should render two inputs in a form', () => {
@@ -47,29 +46,48 @@ describe('User', () => {
     expect(wrapper).to.have.exactly(1).descendants('input[type="password"]')
   })
 
-  const testInputs = () => {
-    //const newValue = 'my new value'
-    const inputNames = ['email', 'password'] 
+  it('should show message if message prop is passed through', () => {
+    const wrapper = mount(<User message='some message' />)
+    expect(wrapper.find(Message).length).to.eql(1)
+  })
 
-    inputNames.forEach((inputName) => {
-      it(`should call onChange prop function when ${inputName} input is changed`, () => {
-        const onChangeFunc = sinon.spy()
-        const wrapper = mount(<User onChange={onChangeFunc} />)
-        wrapper.find(`input[type="${inputName}"]`).simulate('change', {target: {value: 'My new value'}});
+  it('should not message if message prop is not passed through', () => {
+    const wrapper = mount(<User />)
+    expect(wrapper.find(Message).length).to.eql(0)
+  })
 
-        expect(onChangeFunc.called).to.be.true
-      })
-      it(`${inputName} input: the onUpdate prop function should call the function with the name of the input`)
-      it(`${inputName} input: the onUpdate prop function should call the function with the value of the input`)
+  const exampleInputValue = 'my new value'
+  const inputNames = ['email', 'password'] 
+
+  inputNames.forEach((inputName) => {
+
+    it(`should call onChange prop function when ${inputName} input is changed`, () => {
+      const onChangeFunc = sinon.spy()
+      const wrapper = mount(<User onChange={onChangeFunc} />)
+      wrapper.find(`input[type="${inputName}"]`).simulate('change', {target: {value: exampleInputValue }});
+
+      expect(onChangeFunc.called).to.be.true
     })
-  }
 
-  testInputs()
-  
-  it('should show message if message prop is passed through')
+    it(`${inputName} input: the onUpdate prop function should call the function with the name of the input and its value`, () => {
+      const onChangeFunc = sinon.spy()
+      const wrapper = mount(<User onChange={onChangeFunc} />)
+      wrapper.find(`input[type="${inputName}"]`).simulate('change', { target: { value: exampleInputValue }});
+
+      expect(onChangeFunc.calledWith({ name: inputName, value: exampleInputValue })).to.be.true
+    })
+
+  })
 
   describe('UserForm', () => {
-    it('clicking submit button should call onSubmit function prop')
+    it('clicking submit button should call onSubmit function prop', () => {
+      const onSubmitFunc = sinon.spy()
+      const wrapper = mount(<User onSubmit={onSubmitFunc} />)
+
+      wrapper.find(`[type="submit"]`).simulate('click');      
+
+      expect(onSubmitFunc.called).to.be.true
+    })
   })
 
 })
