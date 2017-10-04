@@ -1,8 +1,8 @@
 <h1 align="center"> Head Start ★★</h1>
 
 <p align="center">
-  <a>
-    <img src="https://img.shields.io/circleci/project/letladi/head-start/dev.svg" alt="Build Status">
+  <a href="https://circleci.com/gh/Letladi/head-start">
+    <img src="https://circleci.com/gh/Letladi/head-start.svg?style=svg" alt="Build Status">
   </a>
 </p>
 
