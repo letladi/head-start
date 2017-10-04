@@ -1,4 +1,5 @@
 import nightmare from 'nightmare'
+import { expect } from 'chai'
 import { visit } from 'util/helpers'
  
 describe('When visiting the homepage', () => {
@@ -7,6 +8,6 @@ describe('When visiting the homepage', () => {
 
     let text = await page.evaluate(() => document.body.textContent).end()
 
-    expect(text).toContain('Verifying Your Session...')
+    expect(text).to.include('Verifying Your Session...')
   })
 })
