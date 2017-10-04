@@ -1,8 +1,14 @@
-# Head Start ★★
+<h1 align="center"> Head Start ★★</h1>
 
-React and Redux, Webpack 3 boilerplate.
+<p align="center">
+  <a>
+    <img src="https://img.shields.io/circleci/project/letladi/head-start/dev.svg" alt="Build Status">
+  </a>
+</p>
 
-This project builds on the [Marvin](git@github.com:Letladi/head-start.git) boilerplate by [Work & Co](https://work.co).
+<p align="center">React and Redux, Webpack 3 boilerplate.</p>
+
+<p align="center">This project builds on the [Marvin](git@github.com:Letladi/head-start.git) boilerplate by [Work & Co](https://work.co).</p>
 
 ## Table of contents
 * [What is this?](#user-content-what-is-this)

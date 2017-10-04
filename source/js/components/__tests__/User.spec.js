@@ -56,6 +56,15 @@ describe('User', () => {
     expect(wrapper.find(Message).length).to.eql(0)
   })
 
+  it('clicking submit button should call onSubmit function prop', () => {
+    const onSubmitFunc = sinon.spy()
+    const wrapper = mount(<User onSubmit={onSubmitFunc} />)
+
+    wrapper.find(`[type="submit"]`).simulate('click');      
+
+    expect(onSubmitFunc.called).to.be.true
+  })
+
   const exampleInputValue = 'my new value'
   const inputNames = ['email', 'password'] 
 
@@ -78,16 +87,4 @@ describe('User', () => {
     })
 
   })
-
-  describe('UserForm', () => {
-    it('clicking submit button should call onSubmit function prop', () => {
-      const onSubmitFunc = sinon.spy()
-      const wrapper = mount(<User onSubmit={onSubmitFunc} />)
-
-      wrapper.find(`[type="submit"]`).simulate('click');      
-
-      expect(onSubmitFunc.called).to.be.true
-    })
-  })
-
 })
