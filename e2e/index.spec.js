@@ -1,6 +1,8 @@
 import nightmare from 'nightmare'
 //import { expect } from 'chai'
 import { visit } from 'util/helpers'
+
+jasmine.DEFUALT_TIMEOUT_INTERVAL = 30000
  
 describe('When visiting the homepage', async () => {
   it('it welcomes the user', async () => {
