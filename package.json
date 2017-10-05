@@ -22,8 +22,7 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "jest --verbose",
-    "test:watch": "jest --watch"
+    "test": "jest --verbose"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -91,7 +90,6 @@
     "lodash": "^4.17.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "pm2": "^2.7.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-redux": "^5.0.5",

@@ -32,6 +32,11 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      # install pm2 globally
+      - run: yarn install pm2 -g 
+      # and update it
+      - run: pm2 update
         
       # run tests!
       # # -e here configures the script to bomb out on an error

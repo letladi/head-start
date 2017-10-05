@@ -7,7 +7,7 @@ yarn run universal:build
 yarn run start:production
 
 # Execute tests
-PORT=8080 CI=true npm run test
+PORT=8080 CI=true yarn run test
 
 # Kill the server
 yarn run stop:production
