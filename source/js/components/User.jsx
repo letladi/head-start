@@ -45,7 +45,7 @@ export const Login = (props) => <UserForm {...props} command='Login' />
 export default class User extends Component {
 
   static propTypes = {
-    requireLogin: PropTypes.string,
+    requireLogin: PropTypes.bool,
   }
 
   render() {

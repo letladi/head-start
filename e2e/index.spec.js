@@ -2,7 +2,7 @@
 
 import nightmare from 'nightmare'
 import { expect } from 'chai'
-import { visit } from 'util/helpers'
+import { visit } from './helpers'
  
 describe('When visiting the homepage', async () => {
   it('it welcomes the user', async () => {

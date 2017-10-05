@@ -19,6 +19,15 @@ export const verifyUserSession = () => ({
   type: VERIFY_USER_SESSION,
 })
 
+export const verifyUserSessionSuccess = (userInfo) => ({
+  type: VERIFY_USER_SESSION_SUCCESS,
+  userInfo,
+})
+
+export const verifyUserSessionError = () => ({
+  type: VERIFY_USER_SESSION_ERROR,
+})
+
 export const logoutUser = () => ({
   type: LOGOUT_USER,
 })

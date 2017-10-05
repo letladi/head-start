@@ -13,7 +13,7 @@ import {
 
 } from 'state/actions/user'
 
-const initialState = Map({
+export const initialState = Map({
   verifyingSession: true,
   requireLogin: false,
 })

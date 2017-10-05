@@ -122,8 +122,5 @@
   "bugs": {
     "url": "https://github.com/letladi/head-start/issues"
   },
-  "homepage": "https://github.com/letladi/head-start#readme",
-  "prepush": [
-    "npm run lint-hook --silent"
-  ]
+  "homepage": "https://github.com/letladi/head-start#readme"
 }
