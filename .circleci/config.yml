@@ -34,7 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # install pm2 globally
-      - run: yarn install pm2 -g 
+      - run: yarn global add pm2
       # and update it
       - run: pm2 update
         
