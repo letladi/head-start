@@ -35,6 +35,6 @@ jobs:
         
       # run tests!
       # # -e here configures the script to bomb out on an error
-      - run: yarn test
+      - run: yarn run test:unit
 
 

@@ -8,6 +8,6 @@ describe('When visiting the homepage', async () => {
 
     let text = await page.evaluate(() => document.body.textContent).end()
 
-    expect(text).to.not.include('Verifying Your Session...')
+    expect(text).to.include('Verifying Your Session...')
   })
 })

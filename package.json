@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "start:production": "pm2 start build/server.js",
+    "start:production": "pm2 restart build/server.js",
     "stop:production": "pm2 stop build/server.js",
     "client:dev": "webpack-dashboard -t 'Head Start Boilerplate' -- webpack-dev-server",
     "client:watch": "webpack",
@@ -22,7 +22,8 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "jest source --verbose",
+    "test": "jest --verbose",
+    "test:unit": "jest source --verbose",
     "test:e2e": "jest e2e --verbose",
     "test:all": "bash -e scripts/test.sh"
   },
