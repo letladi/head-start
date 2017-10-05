@@ -1,5 +1,5 @@
 import nightmare from 'nightmare'
-//import { expect } from 'chai'
+import { expect } from 'chai'
 import { visit } from 'util/helpers'
  
 describe('When visiting the homepage', async () => {
@@ -8,6 +8,6 @@ describe('When visiting the homepage', async () => {
 
     let text = await page.evaluate(() => document.body.textContent).end()
 
-    expect(text).toNotContain('Verifying Your Session...')
+    expect(text).to.not.include('Verifying Your Session...')
   })
 })
