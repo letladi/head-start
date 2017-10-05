@@ -13,18 +13,18 @@ const ServerHtml = ({ appHtml, dehydratedState }) => (
       <title>{APPLICATION_NAME}</title>
 
       <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css' />
-      <link rel='stylesheet' href={ `/${ outputFiles.css }` } />
+      <link rel='stylesheet' href={`/${ outputFiles.css }`} />
     </head>
     <body>
       <div
         id='root'
-        dangerouslySetInnerHTML={ { __html: appHtml } } // eslint-disable-line
+        dangerouslySetInnerHTML={{ __html: appHtml }} // eslint-disable-line
       />
       <script
-        dangerouslySetInnerHTML={ { __html: `var __DEHYDRATED_STATE = ${ dehydratedState };` } } // eslint-disable-line
+        dangerouslySetInnerHTML={{ __html: `var __DEHYDRATED_STATE = ${dehydratedState};` }} // eslint-disable-line
       />
-      <script type='text/javascript' src={ `/${ outputFiles.vendor }` } />
-      <script type='text/javascript' src={ `/${ outputFiles.client }` } />
+      <script type='text/javascript' src={`/${ outputFiles.vendor }`} />
+      <script type='text/javascript' src={`/${ outputFiles.client }`} />
     </body>
   </html>
 )
@@ -35,7 +35,7 @@ ServerHtml.propTypes = {
 }
 
 const getServerHtml = (appHtml, dehydratedState = null) => {
-  return `<!doctype html>${ ReactDOMServer.renderToString(<ServerHtml appHtml={ appHtml } dehydratedState={ dehydratedState } />) }`
+  return `<!doctype html>${ ReactDOMServer.renderToString(<ServerHtml appHtml={appHtml} dehydratedState={dehydratedState} />) }`
 }
 
 export default getServerHtml

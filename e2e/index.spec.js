@@ -1,3 +1,5 @@
+/* eslint no-unused-expressions: 0 */
+
 import nightmare from 'nightmare'
 import { expect } from 'chai'
 import { visit } from 'util/helpers'

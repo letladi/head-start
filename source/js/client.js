@@ -15,7 +15,7 @@ export const store = configureStore()
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Provider store={ store }>
+      <Provider store={store}>
         <Component />
       </Provider>
     </AppContainer>,

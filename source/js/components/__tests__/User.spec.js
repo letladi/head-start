@@ -1,16 +1,17 @@
+/* eslint no-unused-expressions: 0 */
+
 import React from 'react'
-import { Input, Message } from 'semantic-ui-react'
+import { Message } from 'semantic-ui-react'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import sinon from 'sinon'
-import { shallow, mount, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import User, { Register, Login } from 'components/User'
 
 chai.use(chaiEnzyme())
 
-
 describe('User', () => {
-  it('should render Register by default', () => {    
+  it('should render Register by default', () => {
     const wrapper = shallow(<User />)
     expect(wrapper).to.have.type(Register)
   })
@@ -60,31 +61,29 @@ describe('User', () => {
     const onSubmitFunc = sinon.spy()
     const wrapper = mount(<User onSubmit={onSubmitFunc} />)
 
-    wrapper.find(`[type="submit"]`).simulate('click');      
+    wrapper.find('[type="submit"]').simulate('click')
 
     expect(onSubmitFunc.called).to.be.true
   })
 
   const exampleInputValue = 'my new value'
-  const inputNames = ['email', 'password'] 
+  const inputNames = ['email', 'password']
 
   inputNames.forEach((inputName) => {
-
-    it(`should call onChange prop function when ${inputName} input is changed`, () => {
+    it(`should call onChange prop function when ${ inputName } input is changed`, () => {
       const onChangeFunc = sinon.spy()
       const wrapper = mount(<User onChange={onChangeFunc} />)
-      wrapper.find(`input[type="${inputName}"]`).simulate('change', {target: {value: exampleInputValue }});
+      wrapper.find(`input[type="${ inputName }"]`).simulate('change', { target: { value: exampleInputValue } })
 
       expect(onChangeFunc.called).to.be.true
     })
 
-    it(`${inputName} input: the onUpdate prop function should call the function with the name of the input and its value`, () => {
+    it(`${ inputName } input: the onUpdate prop function should call the function with the name of the input and its value`, () => {
       const onChangeFunc = sinon.spy()
       const wrapper = mount(<User onChange={onChangeFunc} />)
-      wrapper.find(`input[type="${inputName}"]`).simulate('change', { target: { value: exampleInputValue }});
+      wrapper.find(`input[type="${ inputName }"]`).simulate('change', { target: { value: exampleInputValue } })
 
       expect(onChangeFunc.calledWith({ name: inputName, value: exampleInputValue })).to.be.true
     })
-
   })
 })

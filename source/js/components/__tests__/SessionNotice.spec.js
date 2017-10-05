@@ -1,3 +1,5 @@
+/* eslint no-unused-expressions: 0 */
+
 import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import chai, { expect } from 'chai'

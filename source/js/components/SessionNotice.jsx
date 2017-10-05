@@ -10,18 +10,17 @@ import * as utils from 'util/index'
 export default class SessionNotice extends Component {
 
   static propTypes = {
-    verifyingSession: PropTypes.bool
+    verifyingSession: PropTypes.bool,
   }
 
-  render() { 
+  render() {
     const { verifyingSession } = this.props
-     if (utils.falsy(verifyingSession)) return null
+    if (utils.falsy(verifyingSession)) return null
+
     return (
-      <Modal dimmer='blurring' open={ verifyingSession }>
+      <Modal dimmer='blurring' open={verifyingSession}>
         <Loader size='massive'>Verifying Your Session...</Loader>
       </Modal>
     )
   }
 }
-
-

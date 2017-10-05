@@ -67,8 +67,8 @@ app.use((req, res) => {
   const context = {}
 
   const appHtml = ReactDOMServer.renderToString(
-    <Provider store={ store }>
-      <Server location={ req.url } context={ context } />
+    <Provider store={store}>
+      <Server location={req.url} context={context} />
     </Provider>
   )
 

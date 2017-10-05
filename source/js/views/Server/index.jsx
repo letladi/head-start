@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom'
 import App from 'views/App'
 
 const Server = ({ location, context }) => (
-  <StaticRouter location={ location } context={ context }>
+  <StaticRouter location={location} context={context}>
     <App />
   </StaticRouter>
 )

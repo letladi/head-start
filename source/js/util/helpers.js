@@ -7,7 +7,7 @@ const BASE_URL = url.format({
   port: process.env.PORT || 8080,
 })
 
-export const visit = (path = '', query = {}) => {
+export const visit = (path = '') => {
   const location = url.resolve(BASE_URL, path)
 
   return nightmare().goto(location)

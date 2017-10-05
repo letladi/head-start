@@ -11,6 +11,6 @@ export const routeCodes = {
 
 export default () => (
   <Switch>
-    <Route path='*' component={ NotFound } />
+    <Route path='*' component={NotFound} />
   </Switch>
 )
