@@ -22,8 +22,13 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "jest --verbose"
+    "test": "jest source --verbose",
+    "test:e2e": "jest e2e --verbose",
+    "test:all": "bash -e scripts/test.sh"
   },
+  "pre-commit": [
+    "test:all"
+  ],
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.7.2",
@@ -61,6 +66,7 @@
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "postcss-loader": "^2.0.6",
+    "pre-commit": "^1.2.2",
     "prepush": "^3.1.11",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",
