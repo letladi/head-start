@@ -35,7 +35,6 @@ function* performUserLogin({ data }) {
 }
 
 function* verifySession() {
-  console.log('WE ARE NOW VERIFYING THE SESSION')
   try {
     const userInfo = JSON.parse(localStorage.getItem(LOCAL_USER_STATE))
 

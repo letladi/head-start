@@ -77,7 +77,7 @@ const actionsMap = {
     }))
   },
 
-  [HIDE_ACCOUNT_MODAL]: (state, {}) => {
+  [HIDE_ACCOUNT_MODAL]: (state) => {
     return state.merge(Map({
       modalInfo: null,
     }))
