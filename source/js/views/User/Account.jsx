@@ -13,7 +13,7 @@ import { ACCOUNT } from 'constants/names'
 export default class AccountModal extends Component {
 
   static propTypes = {
-    modalInfo: PropTypes.object,
+    modalInfo: PropTypes.oneOf([ACCOUNT.REGISTER, ACCOUNT.LOGIN]),
     dispatch: PropTypes.func,
   }
 
@@ -22,12 +22,13 @@ export default class AccountModal extends Component {
     if (utils.falsy(modalInfo)) return null
 
     const { alternateAction } = modalInfo
+    const showLoginForm = (modalInfo.name == ACCOUNT.LOGIN.name)
 
     return (
       <Modal dimmer='blurring' size='tiny' open={true} onClose={() => dispatch(hideAccountModal())}>
         <Modal.Header>{modalInfo.title}</Modal.Header>
         <Modal.Content>
-          <User />
+          <User requireLogin={showLoginForm} />
         </Modal.Content>
         <Modal.Actions>
           <Comment.Actions>
@@ -36,6 +37,7 @@ export default class AccountModal extends Component {
             <Button
               basic
               color='grey'
+              className='alternate-btn'
               onClick={() => dispatch(showAccountModal(ACCOUNT[alternateAction]))}
             >
               {modalInfo.alternateCommand}

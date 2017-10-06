@@ -34,7 +34,7 @@ const UserForm = ({ onChange, onSubmit, commandText, message }) => (
 UserForm.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  commandText: PropTypes.string,
+  commandText: PropTypes.string.isRequired,
   message: PropTypes.string,
 }
 
