@@ -26,7 +26,7 @@ const UserForm = ({ onChange, onSubmit, commandText, message }) => (
       {message && <Message info content={message} />}
     </Form.Field>
     <Form.Field>
-      <Button type='submit' onClick={onSubmit}>{commandText}</Button>
+      <Button type='submit' fluid color='green' onClick={onSubmit}>{commandText}</Button>
     </Form.Field>
   </Form>
 )
@@ -38,9 +38,9 @@ UserForm.propTypes = {
   message: PropTypes.string,
 }
 
-export const Register = (props) => <UserForm {...props} command='Register' />
+export const Register = (props) => <UserForm {...props} commandText='Register' />
 
-export const Login = (props) => <UserForm {...props} command='Login' />
+export const Login = (props) => <UserForm {...props} commandText='Login' />
 
 export default class User extends Component {
 

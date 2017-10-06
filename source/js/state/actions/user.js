@@ -10,6 +10,10 @@ export const LOGOUT_USER = 'LOGOUT_USER'
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS'
 export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR'
 
+export const SHOW_ACCOUNT_MODAL = 'SHOW_ACCOUNT_MODAL'
+export const HIDE_ACCOUNT_MODAL = 'HIDE_ACCOUNT_MODAL'
+export const SHOW_ALTERNATE_ACCOUNT_MODAL = 'SHOW_ALTERNATE_ACCOUNT_MODAL'
+
 export const loginUser = (data) => ({
   type: LOGIN_USER,
   data,
@@ -30,5 +34,14 @@ export const verifyUserSessionError = () => ({
 
 export const logoutUser = () => ({
   type: LOGOUT_USER,
+})
+
+export const showAccountModal = (modalInfo) => ({
+  type: SHOW_ACCOUNT_MODAL,
+  modalInfo,
+})
+
+export const hideAccountModal = () => ({
+  type: HIDE_ACCOUNT_MODAL,
 })
 

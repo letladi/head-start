@@ -11,10 +11,13 @@ import {
   VERIFY_USER_SESSION_SUCCESS,
   VERIFY_USER_SESSION_ERROR,
 
+  SHOW_ACCOUNT_MODAL,
+  HIDE_ACCOUNT_MODAL,
+
 } from 'state/actions/user'
 
 export const initialState = Map({
-  verifyingSession: true,
+  verifyingSession: false,
   requireLogin: false,
 })
 
@@ -65,6 +68,18 @@ const actionsMap = {
     return state.merge(Map({
       requireLogin: true,
       userInfo: void(0),
+    }))
+  },
+
+  [SHOW_ACCOUNT_MODAL]: (state, { modalInfo }) => {
+    return state.merge(Map({
+      modalInfo,
+    }))
+  },
+
+  [HIDE_ACCOUNT_MODAL]: (state, {}) => {
+    return state.merge(Map({
+      modalInfo: null,
     }))
   },
 

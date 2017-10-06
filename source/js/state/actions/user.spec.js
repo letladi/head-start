@@ -1,7 +1,7 @@
 import { expect } from 'chai'
-import { 
-  verifyUserSession, verifyUserSessionSuccess, verifyUserSessionError, loginUser, 
-  VERIFY_USER_SESSION, VERIFY_USER_SESSION_SUCCESS, VERIFY_USER_SESSION_ERROR, LOGIN_USER, 
+import {
+  verifyUserSession, verifyUserSessionSuccess, verifyUserSessionError, loginUser,
+  VERIFY_USER_SESSION, VERIFY_USER_SESSION_SUCCESS, VERIFY_USER_SESSION_ERROR, LOGIN_USER,
 } from 'state/actions/user'
 
 describe('actions for current user', () => {
