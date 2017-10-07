@@ -19,12 +19,13 @@
     "universal:build": "npm run client:build && npm run server:build",
     "clean": "rm -rf ./build",
     "lint-hook": "eslint ./source/js ./webpack ./*.js -f table --ext .js --ext .jsx",
-    "lint": "npm run lint-hook --silent || true",
+    "lint": "npm run lint-hook --silent",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
     "test": "jest --verbose",
     "test:unit": "jest source --verbose",
     "test:e2e": "jest e2e --verbose",
+    "test:e2e-production": "bash -e scripts/test-e2e.sh",
     "test:all": "bash -e scripts/test.sh"
   },
   "pre-commit": [

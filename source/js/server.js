@@ -14,13 +14,12 @@ import configureStore from 'config/store'
 import getServerHtml from 'config/server-html'
 import Server from 'views/Server'
 import routes from 'api/routes/'
+import { HOST_NAME, PORT } from 'constants/urls'
 
 // Load SCSS
 import '../scss/app.scss'
 
 const app = express()
-const hostname = 'localhost'
-const port = 8080
 
 passport.use(new Strategy((username, password, done) => {
   done(null, false)
@@ -86,10 +85,10 @@ app.use((req, res) => {
 })
 
 // Start listening
-app.listen(port, (error) => {
+app.listen(PORT, (error) => {
   if (error) {
     console.error(error) // eslint-disable-line
   } else {
-    console.info(`\n★★ Listening on port ${ port }. Open up http://${ hostname }:${ port }/ in your browser.\n`) // eslint-disable-line
+    console.info(`\n★★ Listening on port ${ PORT }. Open up http://${ HOST_NAME }:${ PORT }/ in your browser.\n`) // eslint-disable-line
   }
 })

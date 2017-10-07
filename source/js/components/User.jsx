@@ -46,6 +46,7 @@ export default class User extends Component {
 
   static propTypes = {
     requireLogin: PropTypes.bool,
+    userFormInfo: PropTypes.object,
   }
 
   render() {

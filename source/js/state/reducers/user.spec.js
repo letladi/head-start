@@ -8,6 +8,16 @@ describe('user reducers', () => {
     expect(reducer(void(0), {})).to.eql(initialState)
   })
 
+  it(`should reset userFormInfo for ${ user.SHOW_ACCOUNT_MODAL }`, () => {
+    const modalInfo = {}
+    expect(reducer(initialState, user.showAccountModal(modalInfo))).to.eql(
+      initialState.merge(Map({
+        modalInfo,
+        userFormInfo: {},
+      }))
+    )
+  })
+
   it(`should handle ${ user.VERIFY_USER_SESSION }`, () => {
     expect(reducer(initialState, user.verifyUserSession())).to.eql(
       initialState.merge(Map({
@@ -31,6 +41,53 @@ describe('user reducers', () => {
       initialState.merge(Map({
         verifyingSession: false,
         requireLogin: true,
+      }))
+    )
+  })
+
+  it(`should handle ${ user.LOGIN_USER }`, () => {
+    expect(reducer(initialState, user.loginUser())).to.eql(
+      initialState.merge(Map({
+        loggingIn: true,
+      }))
+    )
+  })
+
+  it(`should handle ${ user.LOGIN_USER_SUCCESS }`, () => {
+    const userInfo = { token: 'some-token' }
+    expect(reducer(initialState, user.onUserLoginSuccess(userInfo))).to.eql(
+      initialState.merge(Map({
+        loggingIn: false,
+        requireLogin: false,
+        userInfo,
+      }))
+    )
+  })
+
+  it(`should handle ${ user.CAPTURE_USER_FORM_INFO }`, () => {
+    const info = { name: 'email', value: 'john@example.com' }
+    expect(reducer(initialState, user.captureUserFormInfo(info))).to.eql(
+      initialState.merge(Map({
+        userFormInfo: {
+          [info.name]: info.value,
+        },
+      }))
+    )
+  })
+
+  it(`should not over-write old values for ${ user.CAPTURE_USER_FORM_INFO }`, () => {
+    const info = { name: 'email', value: 'john@example.com' }
+    const intermediateState = reducer(initialState, user.captureUserFormInfo(info))
+
+    const newInfo = { name: 'password', value: 'john' }
+    const finalState = reducer(intermediateState, user.captureUserFormInfo(newInfo))
+
+    expect(finalState).to.eql(
+      finalState.merge(Map({
+        userFormInfo: {
+          [info.name]: info.value,
+          [newInfo.name]: newInfo.value,
+        },
       }))
     )
   })

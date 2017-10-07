@@ -1,9 +1,7 @@
 import axios from 'axios'
+import { FILE_UPLOAD_URL, HOST, PORT } from 'constants/urls'
 
-import { FILE_UPLOAD_URL } from 'constants/urls'
-
-const HOST = 'http://localhost:8080/api'
-const buildURL = (endpoint) => `${ HOST }${ endpoint }`
+const buildURL = (endpoint) => `${ HOST }:${ PORT }/api${ endpoint }`
 
 export const get = ({ url, endpoint, params }) => axios.get(url || buildURL(endpoint), { params })
 
