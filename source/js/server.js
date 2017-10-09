@@ -6,41 +6,31 @@ import { Provider } from 'react-redux'
 import transit from 'transit-immutable-js'
 
 import passport from 'passport'
-import { Strategy } from 'passport-local'
 
 import 'babel-polyfill'
 
 import configureStore from 'config/store'
 import getServerHtml from 'config/server-html'
+
 import Server from 'views/Server'
 import routes from 'api/routes/'
+import authRoutes from 'api/routes/auth'
 import { HOST_NAME, PORT } from 'constants/urls'
+
+import authCheckMiddleware from 'api/middleware/auth-check'
+import loginStrategy from 'api/passport/local-login'
+import SignupStrategy from 'api/passport/local-signup'
 
 // Load SCSS
 import '../scss/app.scss'
 
 const app = express()
 
-passport.use(new Strategy((username, password, done) => {
-  done(null, false)
-  // TODO - LET'S IMPLEMENT LOGIN
-}))
-
-passport.serializeUser((user, cb) => {
-  cb(null, user)
-})
-
-passport.deserializeUser((user, cb) => {
-  cb(null, user)
-})
-
-app.use(require('cookie-parser')())
-app.use(require('express-session')({ secret: 'react-client', resave: false, saveUninitialized: false }))
-
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize())
-app.use(passport.session())
+passport.use('local-signup', SignupStrategy)
+passport.use('local-login', loginStrategy)
 
 // allow cross-origin requests, since in development the browser and server have different ports
 // TODO: allow this only in development
@@ -51,9 +41,15 @@ app.all('*', (req, res, next) => {
 })
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true,
+}))
+
+app.use('/auth', authRoutes)
 
 app.use('/client', express.static('build/client'))
 
+app.use(authCheckMiddleware)
 app.use('/api', routes)
 
 app.use((req, res) => {

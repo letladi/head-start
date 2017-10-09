@@ -28,7 +28,7 @@ export default class AccountModal extends Component {
     const submitFunc = showLoginForm ? userActions.loginUser : userActions.registerUser
 
     return (
-      <Modal dimmer='blurring' size='tiny' open={true} onClose={() => dispatch(userActions.hideAccountModal())}>
+      <Modal className='Account' dimmer='blurring' size='tiny' open={true} onClose={() => dispatch(userActions.hideAccountModal())}>
         <Modal.Header>{modalInfo.title}</Modal.Header>
         <Modal.Content>
           <User

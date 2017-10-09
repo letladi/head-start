@@ -10,14 +10,15 @@ function* performUserLogin({ data }) {
   try {
     const loginRes = yield call(loginUser, data)
 
-    if (loginRes.response && loginRes.response.status == 401) {
-      yield put({ type: userActions.LOGIN_USER_ERROR })
-    } else {
+    if (loginRes.status == 200) {
+      const returnedData = loginRes.data
       localStorage.setItem(LOCAL_USER_STATE, JSON.stringify({
-        ...loginRes,
-        createdAt: new Date(),
+        token: returnedData.token,
+        user: returnedData.user,
       }))
-      yield put({ type: userActions.LOGIN_USER_SUCCESS, userInfo: loginRes })
+      yield put({ type: userActions.LOGIN_USER_SUCCESS, userInfo: loginRes.data })
+    } else {
+      yield put({ type: userActions.LOGIN_USER_ERROR, message: loginRes.response.data.message })
     }
   } catch (e) {
     yield put({ type: userActions.LOGIN_USER_ERROR })

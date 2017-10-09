@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import passport from 'passport'
 
 const router = new Router()
 
-// login the user
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.json(req.user)
+router.get('/dashboard', (req, res) => {
+  res.status(200).json({
+    message: "You're authorized to see the secret message.",
+  })
 })
 
 

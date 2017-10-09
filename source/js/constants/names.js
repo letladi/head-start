@@ -17,3 +17,8 @@ export const ACCOUNT = {
     alternateAction: 'REGISTER',
   },
 }
+
+export const MONGO_EMAIL_DUPLICATION_ERROR = 11000
+export const MONGO_ERROR = 'MongoError'
+export const HTTP_CONFLICT_ERROR = 409
+export const INCORRECT_CREDENTIALS_ERROR = 'INCORRECT_CREDENTIALS_ERROR'
