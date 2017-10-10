@@ -6,7 +6,7 @@
   </a>
 </p>
 
-<p align="center">React, Redux, Webpack 3, Jest, MongoDB, Express, Redux-Saga boilerplate.</p>
+<p align="center">React, Redux, Webpack 3, Jest, MongoDB, Express, Redux-Saga, Semantic UI React boilerplate.</p>
 
 <p align="center">
   This project builds on the 
@@ -52,6 +52,7 @@ By complete we mean it has examples for:
 - dummy API
 - using assets (in CSS and components)
 - imports relative to the app root
+- user registration, login, logout
 
 
 <sup>1</sup> Using source maps breaks urls in the CSS loader - https://github.com/webpack/css-loader/issues/232. Try [this](https://github.com/webpack/css-loader/issues/232#issuecomment-240449998) to fix it (but it breaks testing from local network).
@@ -64,6 +65,7 @@ By complete we mean it has examples for:
 - [x] Redux Saga
 - [x] Redux DevTools (you need to have [browser extension](https://github.com/zalmoxisus/redux-devtools-extension) installed)
 - [x] Universal rendering
+- [x] Semantic UI React
 - [x] Webpack 3 (development and production config)
 - [x] Hot Module Replacement
 - [x] Immutable reducer data
@@ -71,7 +73,7 @@ By complete we mean it has examples for:
 - [x] SASS with autoprefixing
 - [x] Webpack dashboard
 - [x] Linting
-- [x] Included `es6-promise` and `isomorphic-fetch`
+- [x] axios (for api calls)
 - [x] Preview production build
 - [x] File imports relative to the app root
 - [x] Git hooks - test and lint before commit
@@ -101,6 +103,9 @@ $ npm install
 * `server:dev` - starts server app only in development mode (use for testing server responses)
 * `universal:dev` - runs both server and client in watch mode, automatically restarts server on changes
 * `universal:build` - builds both server and client
+* `test:e2e-production` - build the application and run the functional tests (ensure MongoDB is running)
+* `test:unit` - run the unit tests (these are only ones run by circle-ci)
+* `teest:all` - run the unit and functional tests (these are run before each commit)
 
 ## Running in dev mode
 
@@ -183,7 +188,7 @@ install only production dependencies and run server
 ```
 npm install --production
 
-node ./build/server.js
+npm run start:production
 ```
 
 ## Removing server rendering related stuff
@@ -231,8 +236,6 @@ Please note that paths to images in SCSS files are relative to `source/scss/base
 }
 ```
 
-Check the example in [source/scss/base/_app.scss](https://github.com/workco/marvin/blob/master/source/scss/base/_app.scss#L164)
-
 ### Importing SVGs as components
 
 Just import your `.svg` files from the `source/assets/svg/` folder, and you are good to go.
@@ -245,8 +248,6 @@ import CircleSvg from '../../../assets/svg/circle.svg';
 <CircleSvg />
 
 ```
-
-Check the example in [source/js/views/Dashboard/index.jsx](https://github.com/workco/marvin/blob/master/source/js/views/Dashboard/index.jsx#L5-L7)
 
 -----
 
