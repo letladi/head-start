@@ -90,13 +90,16 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
     "cookie-parser": "^1.4.3",
     "eslint": "^3.19.0",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "immutable": "^3.8.1",
+    "jsonwebtoken": "^8.0.1",
     "lodash": "^4.17.4",
+    "mongoose": "^4.12.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "prop-types": "^15.5.10",
@@ -108,7 +111,8 @@
     "redux-saga": "^0.15.6",
     "semantic-ui-react": "0.71.4",
     "transit-immutable-js": "^0.7.0",
-    "transit-js": "^0.8.846"
+    "transit-js": "^0.8.846",
+    "validator": "^9.0.0"
   },
   "description": "Boilerplate with react and express",
   "repository": {

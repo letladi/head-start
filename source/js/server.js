@@ -49,7 +49,7 @@ app.use('/auth', authRoutes)
 
 app.use('/client', express.static('build/client'))
 
-app.use(authCheckMiddleware)
+app.use('/api', authCheckMiddleware)
 app.use('/api', routes)
 
 app.use((req, res) => {

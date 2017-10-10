@@ -4,7 +4,7 @@ import nightmare from 'nightmare'
 import { expect } from 'chai'
 import { visit } from './helpers'
  
-describe('When visiting the homepage', async () => {
+describe('When visiting the homepage', () => {
   it('should display the "Register" button when visiting the home page', async () => {
     const page = visit('/')
 
