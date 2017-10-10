@@ -1,10 +1,11 @@
 import { Map } from 'immutable'
-
 import * as userActions from 'state/actions/user'
+import * as messages from 'constants/messages'
 
 export const initialState = Map({
   verifyingSession: false,
   requireLogin: false,
+  formErrors: {},
 })
 
 const actionsMap = {
@@ -32,6 +33,7 @@ const actionsMap = {
   [userActions.LOGIN_USER]: (state) => {
     return state.merge(Map({
       loggingIn: true,
+      formMessage: 'logging you in...',
     }))
   },
 
@@ -40,13 +42,38 @@ const actionsMap = {
       loggingIn: false,
       requireLogin: false,
       userInfo,
+      userFormInfo: {},
     }))
   },
 
-  [userActions.LOGIN_USER_ERROR]: (state) => {
+  [userActions.LOGIN_USER_ERROR]: (state, { message }) => {
     return state.merge(Map({
       loggingIn: false,
+      formMessage: message,
       loginFailed: true,
+    }))
+  },
+
+  [userActions.REGISTER_USER]: (state) => {
+    return state.merge(Map({
+      registeringAccount: true,
+      formMessage: messages.REGISTERING_USER_FORM_MESSAGE,
+    }))
+  },
+
+  [userActions.REGISTER_USER_SUCCESS]: (state) => {
+    return state.merge(Map({
+      registeringAccount: false,
+      formMessage: messages.USER_REGISTER_SUCCESS_MESSAGE,
+    }))
+  },
+
+  [userActions.REGISTER_USER_ERROR]: (state, { data }) => {
+    const { message, errors } = data
+    return state.merge(Map({
+      registeringAccount: false,
+      formMessage: message,
+      formErrors: errors,
     }))
   },
 
@@ -61,6 +88,7 @@ const actionsMap = {
     return state.merge(Map({
       modalInfo,
       userFormInfo: {},
+      formMessage: void(0),
     }))
   },
 

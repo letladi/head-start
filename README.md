@@ -6,7 +6,7 @@
   </a>
 </p>
 
-<p align="center">React and Redux, Webpack 3 boilerplate.</p>
+<p align="center">React, Redux, Webpack 3, Jest, MongoDB, Express, Redux-Saga boilerplate.</p>
 
 <p align="center">
   This project builds on the 

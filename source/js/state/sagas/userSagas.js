@@ -1,14 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-
-import { LOCAL_USER_STATE } from 'constants/names'
+import { LOCAL_USER_STATE, ACCOUNT } from 'constants/names'
 
 import * as userActions from 'state/actions/user'
-
-import { loginUser } from 'state/services/userService'
+import * as userService from 'state/services/userService'
 
 function* performUserLogin({ data }) {
   try {
-    const loginRes = yield call(loginUser, data)
+    const loginRes = yield call(userService.loginUser, data)
 
     if (loginRes.status == 200) {
       const returnedData = loginRes.data
@@ -16,12 +14,28 @@ function* performUserLogin({ data }) {
         token: returnedData.token,
         user: returnedData.user,
       }))
-      yield put({ type: userActions.LOGIN_USER_SUCCESS, userInfo: loginRes.data })
+      yield put(userActions.onUserLoginSuccess(returnedData))
+      yield put(userActions.hideAccountModal())
     } else {
-      yield put({ type: userActions.LOGIN_USER_ERROR, message: loginRes.response.data.message })
+      yield put(userActions.onUserLoginError(loginRes.response.data.message))
     }
   } catch (e) {
-    yield put({ type: userActions.LOGIN_USER_ERROR })
+    yield put(userActions.onUserLoginError(e.message))
+  }
+}
+
+function* performUserRegistration({ data }) {
+  try {
+    const registrationRes = yield call(userService.registerUser, data)
+
+    if (registrationRes.status == 200) {
+      yield put(userActions.showAccountModal(ACCOUNT.LOGIN))
+      yield put(userActions.onUserRegisterSuccess())
+    } else {
+      yield put(userActions.onUserRegisterError(registrationRes.response.data))
+    }
+  } catch (e) {
+    yield put(userActions.onUserRegisterError(e.message))
   }
 }
 
@@ -40,7 +54,12 @@ function* verifySession() {
 }
 
 function* logoutUser() {
-  yield localStorage.setItem(LOCAL_USER_STATE, null)
+  try {
+    yield localStorage.setItem(LOCAL_USER_STATE, null)
+    yield call(userService.logoutUser, null)
+  } catch (e) {
+    // TODO - capture logout error
+  }
 }
 
 function* watchUserLogin() {
@@ -55,8 +74,13 @@ function* watchUserLogout() {
   yield takeEvery(userActions.LOGOUT_USER, logoutUser)
 }
 
+function* watchUserRegistration() {
+  yield takeEvery(userActions.REGISTER_USER, performUserRegistration)
+}
+
 export default [
   watchUserLogin,
   watchSessionVerification,
   watchUserLogout,
+  watchUserRegistration,
 ]

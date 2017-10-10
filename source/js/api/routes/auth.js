@@ -77,4 +77,10 @@ router.post('/login', (req, res, next) => {
   })(req, res, next)
 })
 
+router.post('/logout', (req, res) => {
+  // TODO - something needs to be done here, like after
+  // we've implemented a redis-based solution?
+  res.json({ message: 'You are logged out' })
+})
+
 export default router

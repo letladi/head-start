@@ -1,32 +1,28 @@
 import React, { Component } from 'react'
 import { Form, Input, Button, Label, Message } from 'semantic-ui-react'
 import { PropTypes } from 'prop-types'
+import { map, startCase } from 'lodash'
 
-const UserForm = ({ onChange, onSubmit, commandText, message }) => (
+const UserForm = ({
+  inputs, onChange, onSubmit, commandText, message, submitting, formErrors = {},
+}) => (
   <Form>
-    <Form.Field>
-      <Label pointing='below'>Email</Label>
-      <Input
-        placeholder='Email'
-        name='email'
-        type='email'
-        onChange={({ target }) => onChange({ name: 'email', value: target.value })}
-      />
-    </Form.Field>
-    <Form.Field>
-      <Label pointing='below'>Password</Label>
-      <Input
-        placeholder='Password'
-        name='password'
-        type='password'
-        onChange={({ target }) => onChange({ name: 'password', value: target.value })}
-      />
-    </Form.Field>
+    {map(inputs, ({ name, type }, i) => (
+      <Form.Field key={i}>
+        <Label pointing='below' basic color={formErrors[name] ? 'red' : 'blue'}>{startCase(formErrors[name] || name)}</Label>
+        <Input
+          placeholder={startCase(name)}
+          name={name}
+          type={type}
+          onChange={({ target }) => onChange({ name, value: target.value })}
+        />
+      </Form.Field>
+    ))}
     <Form.Field>
       {message && <Message info content={message} />}
     </Form.Field>
     <Form.Field>
-      <Button type='submit' fluid color='green' onClick={onSubmit}>{commandText}</Button>
+      <Button type='submit' fluid color='green' onClick={onSubmit} loading={submitting} disabled={submitting}>{commandText}</Button>
     </Form.Field>
   </Form>
 )
@@ -36,11 +32,28 @@ UserForm.propTypes = {
   onSubmit: PropTypes.func,
   commandText: PropTypes.string.isRequired,
   message: PropTypes.string,
+  inputs: PropTypes.array.isRequired,
+  submitting: PropTypes.bool,
+  formErrors: PropTypes.object,
 }
 
-export const Register = (props) => <UserForm {...props} commandText='Register' />
+export const Register = (props) => {
+  const inputs = [
+    { type: 'text', name: 'username' },
+    { type: 'email', name: 'email' },
+    { type: 'password', name: 'password' },
+  ]
 
-export const Login = (props) => <UserForm {...props} commandText='Login' />
+  return <UserForm {...props} inputs={inputs} commandText='Register' />
+}
+
+export const Login = (props) => {
+  const inputs = [
+    { type: 'email', name: 'email' },
+    { type: 'password', name: 'password' },
+  ]
+  return <UserForm {...props} inputs={inputs} commandText='Login' />
+}
 
 export default class User extends Component {
 

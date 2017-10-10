@@ -1,3 +1,5 @@
+import * as messages from 'constants/messages'
+
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR'
@@ -42,8 +44,9 @@ export const onUserLoginSuccess = (userInfo) => ({
   userInfo,
 })
 
-export const onUserLoginError = () => ({
+export const onUserLoginError = (message = messages.DEFAULT_LOGIN_ERROR_MESSAGE) => ({
   type: LOGIN_USER_ERROR,
+  message,
 })
 
 export const registerUser = (data) => ({
@@ -51,9 +54,16 @@ export const registerUser = (data) => ({
   data,
 })
 
-export const onRegisterUser = (userInfo) => ({
+export const onUserRegisterSuccess = () => ({
   type: REGISTER_USER_SUCCESS,
-  userInfo,
+  message: messages.USER_REGISTER_SUCCESS_MESSAGE,
+})
+
+export const onUserRegisterError = ({
+  message = messages.DEFAULT_USER_REGISTRATION_ERROR_MESSAGE, errors = {},
+} = {}) => ({
+  type: REGISTER_USER_ERROR,
+  data: { message, errors },
 })
 
 export const logoutUser = () => ({

@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 import * as user from 'state/actions/user'
+import * as messages from 'constants/messages'
 
 describe('actions for current user', () => {
   it('should create an action to verify the current user session', () => {
@@ -44,8 +45,18 @@ describe('actions for current user', () => {
   })
 
   it('should create an action to capture user login error', () => {
+    const message = 'some message'
     const expectedAction = {
       type: user.LOGIN_USER_ERROR,
+      message,
+    }
+    expect(user.onUserLoginError(message)).to.eql(expectedAction)
+  })
+
+  it('should create an action for user login error when no message is provided', () => {
+    const expectedAction = {
+      type: user.LOGIN_USER_ERROR,
+      message: messages.DEFAULT_LOGIN_ERROR_MESSAGE,
     }
     expect(user.onUserLoginError()).to.eql(expectedAction)
   })
@@ -73,5 +84,47 @@ describe('actions for current user', () => {
       info,
     }
     expect(user.captureUserFormInfo(info)).to.eql(expectedAction)
+  })
+
+  it('should create action to logout user', () => {
+    const expectedAction = {
+      type: user.LOGOUT_USER,
+    }
+    expect(user.logoutUser()).to.eql(expectedAction)
+  })
+
+  it('should create action to register user', () => {
+    const data = { username: 'john', email: 'user@example.com', password: 'password' }
+    const expectedAction = {
+      type: user.REGISTER_USER,
+      data,
+    }
+    expect(user.registerUser(data)).to.eql(expectedAction)
+  })
+
+  it('should create action to capture user registration success', () => {
+    const expectedAction = {
+      type: user.REGISTER_USER_SUCCESS,
+      message: messages.USER_REGISTER_SUCCESS_MESSAGE,
+    }
+    expect(user.onUserRegisterSuccess()).to.eql(expectedAction)
+  })
+
+  it('should create action to capture user registration error', () => {
+    const message = 'some-message'
+    const errors = { email: 'email is required' }
+    const expectedAction = {
+      type: user.REGISTER_USER_ERROR,
+      data: { message, errors },
+    }
+    expect(user.onUserRegisterError({ message, errors })).to.eql(expectedAction)
+  })
+
+  it('should create action capture registration error when no message is given', () => {
+    const expectedAction = {
+      type: user.REGISTER_USER_ERROR,
+      data: { message: messages.DEFAULT_USER_REGISTRATION_ERROR_MESSAGE, errors: {} },
+    }
+    expect(user.onUserRegisterError()).to.eql(expectedAction)
   })
 })

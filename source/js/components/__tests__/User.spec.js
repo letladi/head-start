@@ -31,9 +31,13 @@ describe('User', () => {
     expect(loginWrapper).to.not.have.type(Register)
   })
 
-  it('should render two inputs in a form', () => {
+  it('should render two inputs in a register form', () => {
     const wrapper = mount(<User />)
+    expect(wrapper).to.have.exactly(3).descendants('input')
+  })
 
+  it('should rendet two inputs in a login form', () => {
+    const wrapper = mount(<User requireLogin />)
     expect(wrapper).to.have.exactly(2).descendants('input')
   })
 

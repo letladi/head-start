@@ -2,6 +2,7 @@ import { Map } from 'immutable'
 import { expect } from 'chai'
 import reducer, { initialState } from 'state/reducers/user'
 import * as user from 'state/actions/user'
+import * as messages from 'constants/messages'
 
 describe('user reducers', () => {
   it('should return the initial state', () => {
@@ -14,6 +15,7 @@ describe('user reducers', () => {
       initialState.merge(Map({
         modalInfo,
         userFormInfo: {},
+        formMessage: void(0),
       }))
     )
   })
@@ -49,6 +51,7 @@ describe('user reducers', () => {
     expect(reducer(initialState, user.loginUser())).to.eql(
       initialState.merge(Map({
         loggingIn: true,
+        formMessage: 'logging you in...',
       }))
     )
   })
@@ -60,6 +63,18 @@ describe('user reducers', () => {
         loggingIn: false,
         requireLogin: false,
         userInfo,
+        userFormInfo: {},
+      }))
+    )
+  })
+
+  it(`should handle ${ user.LOGIN_USER_ERROR }`, () => {
+    const message = 'some-message'
+    expect(reducer(initialState, user.onUserLoginError(message))).to.eql(
+      initialState.merge(Map({
+        loggingIn: false,
+        formMessage: message,
+        loginFailed: true,
       }))
     )
   })
@@ -88,6 +103,46 @@ describe('user reducers', () => {
           [info.name]: info.value,
           [newInfo.name]: newInfo.value,
         },
+      }))
+    )
+  })
+
+  it(`should handle ${ user.LOGOUT_USER }`, () => {
+    expect(reducer(initialState, user.logoutUser())).to.eql(
+      initialState.merge(Map({
+        userInfo: void(0),
+        requireLogin: true,
+      }))
+    )
+  })
+
+  it(`should handle ${ user.REGISTER_USER }`, () => {
+    expect(reducer(initialState, user.registerUser())).to.eql(
+      initialState.merge(Map({
+        registeringAccount: true,
+        formMessage: messages.REGISTERING_USER_FORM_MESSAGE,
+        formErrors: {},
+      }))
+    )
+  })
+
+  it(`should handle ${ user.REGISTER_USER_SUCCESS }`, () => {
+    expect(reducer(initialState, user.onUserRegisterSuccess())).to.eql(
+      initialState.merge(Map({
+        registeringAccount: false,
+        formMessage: messages.USER_REGISTER_SUCCESS_MESSAGE,
+      }))
+    )
+  })
+
+  it(`should handle ${ user.REGISTER_USER_ERROR }`, () => {
+    const message = 'some-message'
+    const errors = { email: 'email is required' }
+    expect(reducer(initialState, user.onUserRegisterError({ message, errors }))).to.eql(
+      initialState.merge(Map({
+        registeringAccount: false,
+        formMessage: message,
+        formErrors: errors,
       }))
     )
   })

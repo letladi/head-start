@@ -10,6 +10,12 @@ export const loginUser = (data) => http.post(USER_LOGIN_URL, data).then((res) =>
 })
 .catch((err) => err)
 
+export const logoutUser = () => {
+  // TODO - logout user on the server
+  // this prevents an error from occurring if you login again in the same browser session
+  delete http.defaults.headers.common.Authorization
+}
+
 export const registerUser = (data) => http.post(USER_SIGNUP_URL, data).then((res) => {
   return res
 })
